@@ -8,7 +8,7 @@ class S2EmailAndPhoneNumber extends Component {
 
   onFinish = (values) => {
     
-    // this.simplePhone(values.phone_home);
+    this.simplePhone(values.phone_home);
     this.props.setBusinessEmail(values.email_address);
     console.log("Success:", values);
     this.props.nextStep();
@@ -18,15 +18,15 @@ class S2EmailAndPhoneNumber extends Component {
     console.log("Failed:", errorInfo);
   };
 
-  // simplePhone = (value) => {
-  //   const reg = /^\D?(\d{3})\D?\D?(\d{3})\D?(\d{4})/;
-  //   var value = value.replace(reg, "$1$2$3")
-  //   if (reg.test(value)) {
-  //     this.props.setBusinessPhone(value);
-  //     console.log(value);
-  //   };
+  simplePhone = (value) => {
+    const reg = /^\D?(\d{3})\D?\D?(\d{3})\D?(\d{4})/;
+    value = value.replace(reg, "$1$2$3")
+    if (reg.test(value)) {
+      this.props.setBusinessPhone(value);
+      console.log(value);
+    };
 
-  // }
+  }
 
 
   render() {
@@ -57,7 +57,7 @@ class S2EmailAndPhoneNumber extends Component {
               <br />
               <h5>Phone Number</h5>
               <Form.Item
-                name="Business_Phone"
+                name="phone_home"
                 hasFeedback
                 rules={
                   [
@@ -89,7 +89,7 @@ class S2EmailAndPhoneNumber extends Component {
               <h5>Email</h5>
               <Form.Item
                 value={this.props.Email}
-                name="Business_Email"
+                name="email_address"
                 hasFeedback
                 rules={[
                   {

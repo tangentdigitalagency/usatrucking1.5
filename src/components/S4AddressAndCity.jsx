@@ -41,7 +41,7 @@ class S4AddressAndCity extends Component {
               <br />
               <h5>Addess</h5>
               <Form.Item
-                name="Business_Address"
+                name="address"
                 hasFeedback
                 rules={[
                   {
@@ -61,7 +61,7 @@ class S4AddressAndCity extends Component {
               <h5>City
               </h5>
               <Form.Item
-                name="Business_City"
+                name="city"
                 hasFeedback
                 rules={[
                   {

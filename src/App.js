@@ -21,14 +21,16 @@ class App extends Component {
   state = {
     postData: {
       //extra entries
+      lp_campaign_id:"60184942b0f7d",
+      lp_campaign_key:"fP6gFWXh4dyDVn8KbpNJ",
       Key: "rRkWg9.WrP.Ahm.Ic9hNr9kZruQMcRpNruwIc9tVxVpWrV4MgexMl8QKHpEE",
       TYPE: "38",
       Sub_ID: "12",
       Pub_ID: "13",
       TCPA_Consent: "Yes",
       TCPA_Language: "By clicking Get My Quote I provide my electronic signature and express written consent to telemarketing calls, text messages, emails, and postal mail from this Web site, our marketing and re-marketing network, and up to eight insurance companies or their affiliates or representatives at the phone number (including wireless number), email address, and postal address provided by me. I consent to calls and text messages transmitting insurance quotes, or seeking related additional information from me, using an Automatic Telephone Dialing System or prerecorded or artificial voices. I consent that my signature is not a condition of purchasing any property, goods, or services and that I may revoke my consent at any time.",
-      Trusted_Form_URL: "",
-      LeadiD_Token: "",
+      trusted_form_cert_id: "",
+      jornaya_lead_id: "",
       // Redirect_URL: "",
       SRC: "Internal_Business_Insurance",
       Landing_Page: "quantumassurance.com",
@@ -61,6 +63,41 @@ class App extends Component {
     },
   };
 
+  // callMediaAlpha = () => {
+  //   var tempArray = {
+  //   email: this.state.email_address,
+  //     phone: this.state.phone_home,
+  //     address: this.state.address,
+  //     zip: this.state.zip_code,
+  //   }
+  //     window.MediaAlphaExchange = {
+  //       "data": {
+  //          "zip": "98052"
+  //       },
+  //       "placement_id": "4yclnD1Pz-JicFFmiW0DhV7a86VXHw",
+  //       "sub_1": "test sub id",
+  //       "type": "ad_unit",
+  //       "version": 17
+  //    };
+  //    window.MediaAlphaExchange__load("target");
+  //    console.log("hello")
+  
+  
+  //   };
+
+  callMediaAlpha = () => {
+    // console.log("Hey how arew your")
+    window.MediaAlphaExchange = {
+      "data": {
+         "zip": "90210"
+      },
+      "placement_id": "3lYU7xIApFzLYwijXxsv88dhUoSiaA",
+      "sub_1": "test sub id",
+      "type": "ad_unit",
+      "version": 17
+   };
+     window.MediaAlphaExchange__load("target");
+   }
   UNSAFE_componentWillUpdate  = () => {
     console.log(this.state.postData);
   };
@@ -87,15 +124,15 @@ class App extends Component {
           <div className="row">
             <div className="col">
               <StepWizard initialStep={1}>
-                <S1FirstAndLastName
+              <S1FirstAndLastName
                   first_name={this.state.postData.first_name}
                   last_name={this.state.postData.last_name}
                   setFirstName={(v) => {
 
-                    console.log(document.getElementById('leadid_token').value)
+                    console.log(document.getElementById('jornaya_lead_id').value)
                     console.log(document.getElementsByTagName('script')[0].src)
-                    this.setState({ postData: { ...this.state.postData, LeadiD_Token: document.getElementById('leadid_token').value, Trusted_Form_URL: document.getElementById('Trusted_Form_URL_0').value } })
-                    console.log(document.getElementById('Trusted_Form_URL_0'));
+                    this.setState({ postData: { ...this.state.postData, jornaya_lead_id: document.getElementById('jornaya_lead_id').value, trusted_form_cert_id: document.getElementById('trusted_form_cert_id_0').value } })
+                    console.log(document.getElementById('trusted_form_cert_id_0'));
 
                     this.setState({
                       postData: {
@@ -208,7 +245,7 @@ class App extends Component {
                     this.setState({
                       postData: {
                         ...this.state.postData,
-                        EIN: v
+                        ein: v
                       }
                     });
                   }} />
@@ -232,10 +269,9 @@ class App extends Component {
                     });
                   }} />
                 <S8BusinessRevenueAndNoOfEmployees
-                  annual_revenue_over_next_12_months={this.state.postData.annual_revenue_over_next_12_months}
-                  // callMediaAlpha={this.callMediaAlpha}
-                  
+                  annual_revenue_over_next_12_months={this.state.postData.	annual_revenue_over_next_12_months}
                   number_of_employees={this.state.postData.number_of_employees}
+                  callMediaAlpha={this.callMediaAlpha}
                   setRevenue={(v) => {
                     this.setState({
                       postData: {
@@ -253,8 +289,10 @@ class App extends Component {
                       }
                     });
                   }}
+                   
                   postData={this.state.postData}
-                />
+                />   
+              
                 <S9Final postData2={this.state.postData}/>
               </StepWizard>
             </div>

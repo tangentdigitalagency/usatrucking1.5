@@ -42,7 +42,7 @@ class S7BusinessProfessionAndYears extends Component {
               <h5>What Is Your Business Profession?
 </h5>
               <Form.Item
-                name="Business_Profession"
+                name="business_profession"
                 hasFeedback
                 rules={[
                   {
@@ -63,7 +63,7 @@ class S7BusinessProfessionAndYears extends Component {
               What Year Was Your Business Founded?
               </h5>
               <Form.Item
-                name="Founded"
+                name="year_business_founded"
                 hasFeedback
                 rules={[
                   {

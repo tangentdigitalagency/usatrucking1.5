@@ -44,7 +44,7 @@ class S3BusinessNameAndWebsite extends Component {
               <br />
               <h5>Legal Business Name</h5>
               <Form.Item
-                name="Business_Name"
+                name="legal_business_name"
                 hasFeedback
                 rules={[
                   {
@@ -64,13 +64,9 @@ class S3BusinessNameAndWebsite extends Component {
               <h5>Website (Optional)
               </h5>
               <Form.Item
-                name="Business_Website"
+                name="business_website"
                 hasFeedback
-                rules={[
-                  {
-                    required: true,
-                    message: "Please Enter Your Website",
-                  },
+                rules={[ 
                   {
                     pattern: /^(https?:\/\/)?(www\.)?([a-zA-Z0-9]+(-?[a-zA-Z0-9])*\.)+[\w]{2,}(\/\S*)?$/i,
                     message: "Please Enter Valid Website",

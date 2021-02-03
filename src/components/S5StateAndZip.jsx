@@ -42,7 +42,7 @@ class S5StateAndZip extends Component {
               <br />
               <h5>State</h5>
               <Form.Item
-                name="Business_State"
+                name="state"
                 hasFeedback
                 rules={[
                   {
@@ -54,7 +54,7 @@ class S5StateAndZip extends Component {
                   }
                 ]}
               >
-                <Select size="large" name="Business_State" >
+                <Select size="large" name="state" >
                   <Option disabled="" selected="" value=""> -- select a state -- </Option>
                   <Option value="AL">AL</Option>
                   <Option value="AK">AK</Option>
@@ -112,7 +112,7 @@ class S5StateAndZip extends Component {
               <h5>Zip
               </h5>
               <Form.Item
-                name="Business_Zip"
+                name="zip_code"
                 hasFeedback
                 rules={[
                   {
