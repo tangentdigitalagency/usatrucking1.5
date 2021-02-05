@@ -22,7 +22,7 @@ class S9Final extends Component {
 				<h1 className="center"> You Are On Your Way To Saving!</h1>
 				<br></br>
                 <div id=""> 
-				{/* <UncontrolledLottie /> */}
+			 <UncontrolledLottie /> 
 				
 				</div>
             </div>
