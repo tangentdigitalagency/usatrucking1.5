@@ -21,7 +21,7 @@ class S9Final extends Component {
 			<div className="container pt-0 main-content-container">
 				<h1 className="center"> You Are On Your Way To Saving!</h1>
 				<br></br>
-                <div id="target"> 
+                <div id=""> 
 				{/* <UncontrolledLottie /> */}
 				
 				</div>
