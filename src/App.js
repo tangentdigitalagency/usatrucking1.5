@@ -115,7 +115,7 @@ class App extends Component {
                <header className="navbar navbar-expand flex-column flex-md-row bd-navbar">
           <div className="container">
             <img
-              src={require("./Assets/logo.png")}
+              src={require("./Assets/logoq.png")}
               className="m-4"
               width="200px"
               alt=""
@@ -131,9 +131,9 @@ class App extends Component {
                       style={{ verticalAlign: "initial" }}
                     />
                   }
-                  href="tel:(855) 466-4705"
+                  href="tel:+18552190784"
                 >
-                  (855) 466-4705
+                  (855) 219-0784
                 </Button>
               </li>
             </ul>
