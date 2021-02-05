@@ -112,14 +112,33 @@ class App extends Component {
           overflow: "hidden",
         }}
       >
-        <nav className="navbar navbar-light "><div className="container">
-          <ul className="nav  nav-fill mx-2 w-sm-100">
-            <li className="nav-item">
-              <img src={Logo} className="mx-2 my-4" width="150px" alt="" />
-            </li>
-          </ul>
-        </div>
-        </nav>
+               <header className="navbar navbar-expand flex-column flex-md-row bd-navbar">
+          <div className="container">
+            <img
+              src={require("./Assets/logo.png")}
+              className="m-4"
+              width="200px"
+              alt=""
+            />
+            <ul className="nav nav-fill ">
+              <li className="nav-item">
+                <Button
+                  type="primary"
+                  size="large"
+                  icon={
+                    <PhoneOutlined
+                      rotate="90"
+                      style={{ verticalAlign: "initial" }}
+                    />
+                  }
+                  href="tel:(855) 466-4705"
+                >
+                  (855) 466-4705
+                </Button>
+              </li>
+            </ul>
+          </div>
+        </header>
         <div className="container">
           <div className="row">
             <div className="col">
