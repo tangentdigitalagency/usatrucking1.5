@@ -1,13 +1,14 @@
 import React, { Component } from "react";
 import { Form,  Button,Input} from "antd";
 import CommonComponents from "./CommonComponents"; 
-
+import {Link,withRouter} from "react-router-dom"; 
 class S7BusinessProfessionAndYears extends Component {
   onFinish = (values) => {
-    this.props.nextStep();
+    // this.props.nextStep();
     this.props.setBusinessProfession(values.business_profession);
     this.props.setyear_business_founded(values.year_business_founded);
     console.log("Success:", values);
+    this.props.history.push("/step8")
   };
 
   onFinishFailed = (errorInfo) => {
@@ -81,11 +82,13 @@ class S7BusinessProfessionAndYears extends Component {
                   type="number"
                 />
               </Form.Item>
+              {/* <Link to="/step8"> */}
               <Form.Item>
                 <Button type="primary" htmlType="submit" block size="large">
                   Next
                 </Button>
               </Form.Item>
+              {/* </Link> */}
             </Form>
           </div>
         </div>
@@ -94,4 +97,4 @@ class S7BusinessProfessionAndYears extends Component {
   }
 }
 
-export default S7BusinessProfessionAndYears;
+export default withRouter(S7BusinessProfessionAndYears);

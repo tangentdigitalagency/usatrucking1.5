@@ -2,13 +2,15 @@ import React, { Component } from "react";
 import { Form, Button, Select } from "antd";
 import CommonComponents from "./CommonComponents";
 import BootstrapSwitchButton from "bootstrap-switch-button-react";
+import {Link,withRouter} from "react-router-dom"; 
 const {Option}=Select;
 class S6BusinessTypeAndEIN extends Component {
   onFinish = (values) => {
-    this.props.nextStep();
+    // this.props.nextStep();
     this.props.setBusinessType(values.business_structure);
     this.props.setEIN(values.ein?"Yes":"No");
     console.log("Success:", values);
+    this.props.history.push("/step7")
   };
 
   onFinishFailed = (errorInfo) => {
@@ -77,11 +79,13 @@ class S6BusinessTypeAndEIN extends Component {
                   style="ant-btn-lg ant-btn-block"
                 />
               </Form.Item>
+              {/* <Link to="step7"> */}
               <Form.Item>
                 <Button type="primary" htmlType="submit" block size="large">
                   Next
                 </Button>
               </Form.Item>
+              {/* </Link> */}
             </Form>
           </div>
         </div>
@@ -90,4 +94,4 @@ class S6BusinessTypeAndEIN extends Component {
   }
 }
 
-export default S6BusinessTypeAndEIN;
+export default withRouter(S6BusinessTypeAndEIN);

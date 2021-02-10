@@ -1,19 +1,29 @@
 import React, { Component } from "react";
 import {Form, Button, Input} from "antd";
 import CommonComponents from "./CommonComponents"; 
-
+import {Link} from "react-router-dom"; 
+import {Redirect} from "react-router-dom"; 
+import {withRouter } from "react-router-dom";
 class S1FirstAndLastName extends Component {
+ 
   onFinish = (values) => {
-    this.props.nextStep();
+    // this.props.nextStep();
     this.props.setFirstName(values.first_name);
     this.props.setLastName(values.last_name);
     console.log("Success:", values);
+    this.props.history.push("/step2")
   };
 
   onFinishFailed = (errorInfo) => {
     console.log("Failed:", errorInfo);
   };
+  // nextpage =()=>(
+  //   // <Redirect to="/step2"/>
+  //   this.props.history.push("/step2"),
+  //   console.log(`netx page`,this.props)
+  // )
   render() {
+   
     return (
       <div className="card shadow-lg" style={{ borderRadius: "25px" }}>
         <CommonComponents
@@ -28,6 +38,7 @@ class S1FirstAndLastName extends Component {
             style={{ paddingTop:"0px" }}
           >
             <Form
+            submit
               name="basic"
               className="mywidth"
               onFinish={this.onFinish}
@@ -79,11 +90,24 @@ class S1FirstAndLastName extends Component {
                   placeholder="Last Name"
                 />
               </Form.Item>
+            
+              {/* <Link to="/step2">  */}
               <Form.Item>
-                <Button type="primary" htmlType="submit" block size="large">
-                  Next
+        
+               
+                <Button type="primary" htmlType="submit" block size="large" 
+                
+                // onClick= {() => this.props.history.push("/step2")}
+                 
+                >
+            
+                
+               Next  
                 </Button>
+              
+               
               </Form.Item>
+            {/* </Link> */}
             </Form>
           </div>
         </div>
@@ -92,4 +116,4 @@ class S1FirstAndLastName extends Component {
   }
 }
 
-export default S1FirstAndLastName;
+export default withRouter(S1FirstAndLastName) ;

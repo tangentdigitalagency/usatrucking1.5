@@ -1,13 +1,14 @@
 import React, { Component } from "react";
 import { Form,  Button,Input} from "antd";
 import CommonComponents from "./CommonComponents"; 
-
+import {Link,withRouter} from "react-router-dom"; 
 class S4AddressAndCity extends Component {
   onFinish = (values) => {
-    this.props.nextStep();
+    // this.props.nextStep();
     this.props.setBusinessAddress(values.address);
     this.props.setBusinessCity(values.city);
     console.log("Success:", values);
+    this.props.history.push("/step5")
   };
 
   onFinishFailed = (errorInfo) => {
@@ -78,11 +79,13 @@ class S4AddressAndCity extends Component {
                   placeholder="City"
                 />
               </Form.Item>
+              {/* <Link to="/step5"> */}
               <Form.Item>
                 <Button type="primary" htmlType="submit" block size="large">
                   Next
                 </Button>
               </Form.Item>
+              {/* </Link> */}
             </Form>
           </div>
         </div>
@@ -91,4 +94,4 @@ class S4AddressAndCity extends Component {
   }
 }
 
-export default S4AddressAndCity;
+export default withRouter(S4AddressAndCity);

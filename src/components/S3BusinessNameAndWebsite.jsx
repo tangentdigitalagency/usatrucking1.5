@@ -1,13 +1,14 @@
 import React, { Component } from "react";
 import { Form,  Button,Input} from "antd";
 import CommonComponents from "./CommonComponents"; 
-
+import {Link,withRouter} from "react-router-dom"; 
 class S3BusinessNameAndWebsite extends Component {
   onFinish = (values) => {
-    this.props.nextStep();
+    // this.props.nextStep();
     this.props.setBusinessName(values.legal_business_name);
     this.props.setBusinessWebsite(values.business_website);
     console.log("Success:", values);
+    this.props.history.push("/step4")
   };
 
   onFinishFailed = (errorInfo) => {
@@ -78,11 +79,13 @@ class S3BusinessNameAndWebsite extends Component {
                   placeholder="e.g: www.mywebsite.com"
                 />
               </Form.Item>
+              {/* <Link to="/step4"> */}
               <Form.Item>
                 <Button type="primary" htmlType="submit" block size="large">
                   Next
                 </Button>
               </Form.Item>
+              {/* </Link> */}
             </Form>
           </div>
         </div>
@@ -91,4 +94,4 @@ class S3BusinessNameAndWebsite extends Component {
   }
 }
 
-export default S3BusinessNameAndWebsite;
+export default withRouter(S3BusinessNameAndWebsite);

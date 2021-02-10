@@ -1,14 +1,16 @@
 import React, { Component } from "react";
 import { Form, Button, Input,Select } from "antd";
 import CommonComponents from "./CommonComponents";
+import {Link,withRouter} from "react-router-dom"; 
 const {Option} = Select;
 
 class S5StateAndZip extends Component {
   onFinish = (values) => {
-    this.props.nextStep();
+    // this.props.nextStep();
     this.props.setBusinessState(values.state);
     this.props.setBusinessZip(values.zip_code);
     console.log("Success:", values);
+    this.props.history.push("/step6")
   };
 
   onFinishFailed = (errorInfo) => {
@@ -131,11 +133,13 @@ class S5StateAndZip extends Component {
                   type="number"
                 />
               </Form.Item>
+              {/* <Link to="/step6"> */}
               <Form.Item>
                 <Button type="primary" htmlType="submit" block size="large">
                   Next
                 </Button>
               </Form.Item>
+              {/* </Link> */}
             </Form>
           </div>
         </div>
@@ -144,4 +148,4 @@ class S5StateAndZip extends Component {
   }
 }
 
-export default S5StateAndZip;
+export default withRouter(S5StateAndZip);

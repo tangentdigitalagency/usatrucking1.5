@@ -4,6 +4,7 @@ import CommonComponents from "./CommonComponents";
 import Axios from "axios";
 import XMLParser from 'react-xml-parser';
 import ProgressLottie from './ProgressLottie';
+import {Link,withRouter} from "react-router-dom"; 
 class S8BusinessRevenueAndNoOfEmployees extends Component {
   state = {
     error: '',
@@ -17,6 +18,7 @@ class S8BusinessRevenueAndNoOfEmployees extends Component {
     this.setState({
       loading: true
     }, this.PostDataOfBusinessInsurance(this.props.postData));
+    this.props.history.push("/step9")
   };
   PostDataOfBusinessInsurance = (postData) => {
     console.log(postData);
@@ -139,11 +141,13 @@ class S8BusinessRevenueAndNoOfEmployees extends Component {
                         time.
                       </p>
                     </Form.Item>
+                    {/* <Link to="step9"> */}
                     <Form.Item>
                       <Button type="primary" htmlType="submit" block size="large">
                         Get My Quote
                       </Button>
                     </Form.Item>
+                    {/* </Link> */}
                   </Form>
                 }
               </React.Fragment>
@@ -155,6 +159,6 @@ class S8BusinessRevenueAndNoOfEmployees extends Component {
   }
 }
 
-export default S8BusinessRevenueAndNoOfEmployees;
+export default withRouter(S8BusinessRevenueAndNoOfEmployees);
 
 

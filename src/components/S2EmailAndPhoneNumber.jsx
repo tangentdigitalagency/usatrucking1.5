@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Form, Input, Button } from "antd";
 import CommonComponents from "./CommonComponents";
-
+import {Link,withRouter} from "react-router-dom"; 
 class S2EmailAndPhoneNumber extends Component {
   formRef = React.createRef();
   state = {};
@@ -11,7 +11,8 @@ class S2EmailAndPhoneNumber extends Component {
     this.simplePhone(values.phone_home);
     this.props.setBusinessEmail(values.email_address);
     console.log("Success:", values);
-    this.props.nextStep();
+    this.props.history.push("/step3")
+    // this.props.nextStep();
   };
 
   onFinishFailed = (errorInfo) => {
@@ -108,11 +109,13 @@ class S2EmailAndPhoneNumber extends Component {
                   placeholder="abc@email.com"
                 />
               </Form.Item>
+              {/* <Link to="/step3"> */}
               <Form.Item>
                 <Button type="primary" htmlType="submit" block size="large">
                   Next
                 </Button>
               </Form.Item>
+              {/* </Link> */}
             </Form>
           </div>
         </div>
@@ -121,4 +124,4 @@ class S2EmailAndPhoneNumber extends Component {
   }
 }
 
-export default S2EmailAndPhoneNumber;
+export default withRouter(S2EmailAndPhoneNumber);

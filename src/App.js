@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { BrowserRouter as Router, Route,Switch } from "react-router-dom";
 
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "antd/dist/antd.css";
@@ -6,7 +7,7 @@ import "./App.css";
 import Grid from "@material-ui/core/Grid";
 import Logo from "./Assets/logoq.png";
 import { Button, Typography } from "antd";
-import S1FirstAndLastName from "./components/S1FirstAndLastName";
+import S1FirstAndLastName from "./components/S1FirstAndLastName";      
 import S2EmailAndPhoneNumber from "./components/S2EmailAndPhoneNumber";
 import S3BusinessNameAndWebsite from './components/S3BusinessNameAndWebsite';
 import StepWizard from "react-step-wizard";
@@ -17,6 +18,8 @@ import S6BusinessTypeAndEIN from "./components/S6BusinessTypeAndEIN";
 import S7BusinessProfessionAndYears from "./components/S7BusinessProfessionAndYears";
 import S8BusinessRevenueAndNoOfEmployees from "./components/S8BusinessRevenueAndNoOfEmployees";
 import S9Final from "./components/S9Final.jsx";
+
+
 class App extends Component {
   state = {
     postData: {
@@ -103,7 +106,8 @@ class App extends Component {
   };
 
   render() {
-    return (
+
+  return (
       <div
         className="container-fluid"
         style={{
@@ -142,178 +146,201 @@ class App extends Component {
         <div className="container">
           <div className="row">
             <div className="col">
-              <StepWizard initialStep={1}>
-              <S1FirstAndLastName
-                  first_name={this.state.postData.first_name}
-                  last_name={this.state.postData.last_name}
-                  setFirstName={(v) => {
+              {/* <StepWizard initialStep={1}> */}
+              <Router>
+            <Switch>
+              <Route exact path="/" >
+            <S1FirstAndLastName
+            props={this.props}
+    first_name={this.state.postData.first_name}
+    last_name={this.state.postData.last_name}
+    setFirstName={(v) => {
 
-                    console.log(document.getElementById('jornaya_lead_id').value)
-                    console.log(document.getElementsByTagName('script')[0].src)
-                    this.setState({ postData: { ...this.state.postData, jornaya_lead_id: document.getElementById('jornaya_lead_id').value, trusted_form_cert_id: document.getElementById('trusted_form_cert_id_0').value } })
-                    console.log(document.getElementById('trusted_form_cert_id_0'));
+      console.log(document.getElementById('jornaya_lead_id').value)
+      console.log(document.getElementsByTagName('script')[0].src)
+      this.setState({ postData: { ...this.state.postData, jornaya_lead_id: document.getElementById('jornaya_lead_id').value, trusted_form_cert_id: document.getElementById('trusted_form_cert_id_0').value } })
+      console.log(document.getElementById('trusted_form_cert_id_0'));
 
-                    this.setState({
-                      postData: {
-                        ...this.state.postData,
-                        first_name: v
-                      }
-                    });
-                  }}
-                  setLastName={(v) => {
-                    this.setState({
-                      postData: {
-                        ...this.state.postData,
-                        last_name: v
-                      }
-                    });
-                  }}
+      this.setState({
+        postData: {
+          ...this.state.postData,
+          first_name: v
+        }
+      });
+    }}
+    setLastName={(v) => {
+      this.setState({
+        postData: {
+          ...this.state.postData,
+          last_name: v
+        }
+      });
+    }}
+  />
+    </Route>
 
-                />
-                <S2EmailAndPhoneNumber
-                  email_address={this.state.postData.email_address}
-                  phone_home={this.state.postData.phone_home}
-                  setBusinessEmail={(v) => {
-                    this.setState({
-                      postData: {
-                        ...this.state.postData,
-                        email_address: v
-                      }
-                    });
-                  }}
-                  setBusinessPhone={(v) => {
-                    this.setState({
-                      postData: {
-                        ...this.state.postData,
-                        phone_home: v
-                      }
-                    });
-                  }}
-                />
-                <S3BusinessNameAndWebsite
-                  legal_business_name={this.state.postData.legal_business_name}
-                  business_website={this.state.postData.business_website}
-                  setBusinessName={(v) => {
-                    this.setState({
-                      postData: {
-                        ...this.state.postData,
-                        legal_business_name: v
-                      }
-                    });
-                  }}
-                  setBusinessWebsite={(v) => {
-                    this.setState({
-                      postData: {
-                        ...this.state.postData,
-                        business_website: v
-                      }
-                    });
-                  }}
-                />
-                <S4AddressAndCity
-                  address={this.state.postData.address}
-                  city={this.state.postData.city}
-                  setBusinessAddress={(v) => {
-                    this.setState({
-                      postData: {
-                        ...this.state.postData,
-                        address: v
-                      }
-                    });
-                  }}
-                  setBusinessCity={(v) => {
-                    this.setState({
-                      postData: {
-                        ...this.state.postData,
-                        city: v
-                      }
-                    });
-                  }}
-                />
-                <S5StateAndZip
-                  state={this.state.postData.state}
-                  zip_code={this.state.postData.zip_code}
-                  setBusinessState={(v) => {
-                    this.setState({
-                      postData: {
-                        ...this.state.postData,
-                        state: v
-                      }
-                    });
-                  }}
-                  setBusinessZip={(v) => {
-                    this.setState({
-                      postData: {
-                        ...this.state.postData,
-                        zip_code: v
-                      }
-                    });
-                  }} />
-                <S6BusinessTypeAndEIN
-                  business_structure={this.state.postData.business_structure}
-                  ein={this.state.postData.ein}
-                  setBusinessType={(v) => {
-                    this.setState({
-                      postData: {
-                        ...this.state.postData,
-                        business_structure: v
-                      }
-                    });
-                  }}
-                  setEIN={(v) => {
-                    this.setState({
-                      postData: {
-                        ...this.state.postData,
-                        ein: v
-                      }
-                    });
-                  }} />
-                <S7BusinessProfessionAndYears
-                  business_profession={this.state.postData.business_profession}
-                  year_business_founded={this.state.postData.year_business_founded}
-                  setBusinessProfession={(v) => {
-                    this.setState({
-                      postData: {
-                        ...this.state.postData,
-                        business_profession: v
-                      }
-                    });
-                  }}
-                  setyear_business_founded={(v) => {
-                    this.setState({
-                      postData: {
-                        ...this.state.postData,
-                        year_business_founded: v
-                      }
-                    });
-                  }} />
-                <S8BusinessRevenueAndNoOfEmployees
-                  annual_revenue_over_next_12_months={this.state.postData.	annual_revenue_over_next_12_months}
-                  number_of_employees={this.state.postData.number_of_employees}
-                  callMediaAlpha={this.callMediaAlpha}
-                  setRevenue={(v) => {
-                    this.setState({
-                      postData: {
-                        ...this.state.postData,
-                        annual_revenue_over_next_12_months: v
-                      }
-                    });
-                  }}
-                  setNumberOfEmployees={(v) => {
-                    this.setState({
-                      postData: {
-                        ...this.state.postData,
-                        number_of_employees: v
+  <Route path="/step2" >  
 
-                      }
-                    });
-                  }}
-                   
-                  postData={this.state.postData}
-                />   
-              
-                <S9Final postData2={this.state.postData}/>
-              </StepWizard>
+  <S2EmailAndPhoneNumber
+    email_address={this.state.postData.email_address}
+    phone_home={this.state.postData.phone_home}
+    setBusinessEmail={(v) => {
+      this.setState({
+        postData: {
+          ...this.state.postData,
+          email_address: v
+        }
+      });
+    }}
+    setBusinessPhone={(v) => {
+      this.setState({
+        postData: {
+          ...this.state.postData,
+          phone_home: v
+        }
+      });
+    }}
+  />
+  </Route>
+  <Route path="/step3">  
+  <S3BusinessNameAndWebsite
+    legal_business_name={this.state.postData.legal_business_name}
+    business_website={this.state.postData.business_website}
+    setBusinessName={(v) => {
+      this.setState({
+        postData: {
+          ...this.state.postData,
+          legal_business_name: v
+        }
+      });
+    }}
+    setBusinessWebsite={(v) => {
+      this.setState({
+        postData: {
+          ...this.state.postData,
+          business_website: v
+        }
+      });
+    }}
+  />
+  </Route>
+  <Route path="/step4">  
+  <S4AddressAndCity
+    address={this.state.postData.address}
+    city={this.state.postData.city}
+    setBusinessAddress={(v) => {
+      this.setState({
+        postData: {
+          ...this.state.postData,
+          address: v
+        }
+      });
+    }}
+    setBusinessCity={(v) => {
+      this.setState({
+        postData: {
+          ...this.state.postData,
+          city: v
+        }
+      });
+    }}
+  />
+  </Route>
+  <Route path="/step5">  
+  <S5StateAndZip
+    state={this.state.postData.state}
+    zip_code={this.state.postData.zip_code}
+    setBusinessState={(v) => {
+      this.setState({
+        postData: {
+          ...this.state.postData,
+          state: v
+        }
+      });
+    }}
+    setBusinessZip={(v) => {
+      this.setState({
+        postData: {
+          ...this.state.postData,
+          zip_code: v
+        }
+      });
+    }} />
+   </Route>
+    <Route path="/step6">  
+  <S6BusinessTypeAndEIN
+    business_structure={this.state.postData.business_structure}
+    ein={this.state.postData.ein}
+    setBusinessType={(v) => {
+      this.setState({
+        postData: {
+          ...this.state.postData,
+          business_structure: v
+        }
+      });
+    }}
+    setEIN={(v) => {
+      this.setState({
+        postData: {
+          ...this.state.postData,
+          ein: v
+        }
+      });
+    }} />
+    </Route>
+    <Route path="/step7">  
+  <S7BusinessProfessionAndYears
+    business_profession={this.state.postData.business_profession}
+    year_business_founded={this.state.postData.year_business_founded}
+    setBusinessProfession={(v) => {
+      this.setState({
+        postData: {
+          ...this.state.postData,
+          business_profession: v
+        }
+      });
+    }}
+    setyear_business_founded={(v) => {
+      this.setState({
+        postData: {
+          ...this.state.postData,
+          year_business_founded: v
+        }
+      });
+    }} />
+    </Route>
+    <Route path="/step8">  
+  <S8BusinessRevenueAndNoOfEmployees
+    annual_revenue_over_next_12_months={this.state.postData.	annual_revenue_over_next_12_months}
+    number_of_employees={this.state.postData.number_of_employees}
+    callMediaAlpha={this.callMediaAlpha}
+    setRevenue={(v) => {
+      this.setState({
+        postData: {
+          ...this.state.postData,
+          annual_revenue_over_next_12_months: v
+        }
+      });
+    }}
+    setNumberOfEmployees={(v) => {
+      this.setState({
+        postData: {
+          ...this.state.postData,
+          number_of_employees: v
+
+        }
+      });
+    }}
+     
+    postData={this.state.postData}
+  />   
+</Route>
+<Route path="/step9">  
+  <S9Final postData2={this.state.postData}/>
+ </Route>
+  </Switch> 
+</Router> 
+              {/* </StepWizard> */}
             </div>
           </div>
         </div>
