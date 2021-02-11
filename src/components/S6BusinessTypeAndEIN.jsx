@@ -3,6 +3,7 @@ import { Form, Button, Select } from "antd";
 import CommonComponents from "./CommonComponents";
 import BootstrapSwitchButton from "bootstrap-switch-button-react";
 import {Link,withRouter} from "react-router-dom"; 
+import { ArrowLeftOutlined } from '@ant-design/icons';
 const {Option}=Select;
 class S6BusinessTypeAndEIN extends Component {
   onFinish = (values) => {
@@ -24,6 +25,13 @@ class S6BusinessTypeAndEIN extends Component {
           totalSteps={this.props.totalSteps}
           previousStep={this.props.previousStep}
         />
+         <div className="p-2">
+           <Link to="/step5" >
+                    <Button type="primary" shape="circle"  >
+                        <ArrowLeftOutlined className="anticon" />
+                    </Button>
+                    </Link>
+                </div>
         <div className="d-flex" style={{ minHeight: "60vh" }}>
           <div
             className="card-body d-xl-flex justify-content-center align-items-center"

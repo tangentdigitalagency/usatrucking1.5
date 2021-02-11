@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Form,  Button,Input} from "antd";
 import CommonComponents from "./CommonComponents"; 
 import {Link,withRouter} from "react-router-dom"; 
+import { ArrowLeftOutlined } from '@ant-design/icons';
 class S3BusinessNameAndWebsite extends Component {
   onFinish = (values) => {
     // this.props.nextStep();
@@ -25,6 +26,13 @@ class S3BusinessNameAndWebsite extends Component {
           totalSteps={this.props.totalSteps}
           previousStep={this.props.previousStep}
         />
+         <div className="p-2">
+           <Link to="/step2" >
+                    <Button type="primary" shape="circle"  >
+                        <ArrowLeftOutlined className="anticon" />
+                    </Button>
+                    </Link>
+                </div>
         <div className="d-flex" style={{ minHeight: "60vh" }}>
           <div
             className="card-body d-xl-flex justify-content-center align-items-center"

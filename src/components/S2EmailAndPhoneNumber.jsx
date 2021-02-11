@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Form, Input, Button } from "antd";
 import CommonComponents from "./CommonComponents";
 import {Link,withRouter} from "react-router-dom"; 
+import { ArrowLeftOutlined } from '@ant-design/icons';
 class S2EmailAndPhoneNumber extends Component {
   formRef = React.createRef();
   state = {};
@@ -38,6 +39,14 @@ class S2EmailAndPhoneNumber extends Component {
           totalSteps={this.props.totalSteps}
           previousStep={this.props.previousStep}
         />
+         <div className="p-2">
+           <Link to="/">
+                    <Button type="primary" shape="circle"  >
+                        <ArrowLeftOutlined className="anticon" />
+                    </Button>
+                    </Link>
+                </div>
+                
         <div className="d-flex" style={{ minHeight: "50vh" }}>
           <div
             className="card-body d-xl-flex justify-content-center align-items-center"

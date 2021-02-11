@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Form, Button, Input,Select } from "antd";
 import CommonComponents from "./CommonComponents";
 import {Link,withRouter} from "react-router-dom"; 
+import { ArrowLeftOutlined } from '@ant-design/icons';
 const {Option} = Select;
 
 class S5StateAndZip extends Component {
@@ -24,6 +25,13 @@ class S5StateAndZip extends Component {
           totalSteps={this.props.totalSteps}
           previousStep={this.props.previousStep}
         />
+         <div className="p-2">
+                   <Link to="/step4">
+                    <Button  type="primary" shape="circle"  >
+                        <ArrowLeftOutlined className="anticon" />
+                    </Button>
+                    </Link>
+                </div>
         <div className="d-flex" style={{ minHeight: "60vh" }}>
           <div
             className="card-body d-xl-flex justify-content-center align-items-center"

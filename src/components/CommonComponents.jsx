@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
-import { ArrowLeftOutlined } from '@ant-design/icons';
+// import { ArrowLeftOutlined } from '@ant-design/icons';
 import { Button } from 'antd';
 
 class CommonComponents extends Component {
     render() {
         return (
             <div className="flex-row d-inline-flex justify-content-between">
-                <div className="p-2">
+                {/* <div className="p-2">
                     <Button type="primary" shape="circle" onClick={this.props.previousStep}  >
                         <ArrowLeftOutlined className="anticon" />
                     </Button>
-                </div>
+                </div> */}
                 <div className="p-2">
                     <h4>{this.props.currentStep}/{this.props.totalSteps}</h4>
                 </div>

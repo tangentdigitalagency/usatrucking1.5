@@ -5,6 +5,7 @@ import Axios from "axios";
 import XMLParser from 'react-xml-parser';
 import ProgressLottie from './ProgressLottie';
 import {Link,withRouter} from "react-router-dom"; 
+import { ArrowLeftOutlined } from '@ant-design/icons';
 class S8BusinessRevenueAndNoOfEmployees extends Component {
   state = {
     error: '',
@@ -62,6 +63,13 @@ class S8BusinessRevenueAndNoOfEmployees extends Component {
           totalSteps={this.props.totalSteps}
           previousStep={this.props.previousStep}
         />
+         <div className="p-2">
+           <Link to="/step7">
+                    <Button  type="primary" shape="circle"  >
+                        <ArrowLeftOutlined className="anticon" />
+                    </Button>
+                    </Link>
+                </div>
         <div className="d-flex" style={{ minHeight: "60vh" }}>
           <div
             className="card-body d-xl-flex justify-content-center align-items-center"
