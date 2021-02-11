@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import { Form, Input, Button } from "antd";
+import { Form, Input, Button, Progress } from "antd";
 import CommonComponents from "./CommonComponents";
 import {Link,withRouter} from "react-router-dom"; 
+
 class S2EmailAndPhoneNumber extends Component {
   formRef = React.createRef();
   state = {};
@@ -28,11 +29,12 @@ class S2EmailAndPhoneNumber extends Component {
     };
 
   }
-
+ 
 
   render() {
     return (
       <div className="card shadow-lg" style={{ borderRadius: "25px" }}>
+        <Progress percent={25} status="active" showInfo={false} className="pbar"/>
         <CommonComponents
           currentStep={this.props.currentStep}
           totalSteps={this.props.totalSteps}
@@ -109,7 +111,27 @@ class S2EmailAndPhoneNumber extends Component {
                   placeholder="abc@email.com"
                 />
               </Form.Item>
-              {/* <Link to="/step3"> */}
+              <p className="tcpa">   By hitting submit below, I provide my express written
+                          consent to the following. Telemarketing calls, text
+                          messages, emails, and postal mail from this Web site, our
+                          <a href="https://www.quotehound.com/partners">marketing and re-marketing </a> network, and up to eight
+                          insurance companies or their affiliates  or
+                          representatives at the phone number (including wireless
+                          number), email address, and postal address provided by me.
+                          Telemarketing calls, text messages, emails, and postal
+                          mail (including wireless number), email address, and
+                          postal address provided by me. Calls and text messages
+                          transmitting insurance quotes, or seeking related
+                          additional information from me, using an Automated
+                          Telephone Dialing System or prerecorded or artificial
+                          voices. Electronic video monitoring and recordation of my
+                          activities on this Site; and I acknowledge that I may
+                          revoke my consent at any time by Calling
+                      <a href="tel:1883161350">1 888-316-1350 </a> or emailing
+                      “STOP” to
+                      <a href="mailto:optout@quotehound.com">
+                            {" "}
+                        optout@quotehound.com </a> </p>
               <Form.Item>
                 <Button type="primary" htmlType="submit" block size="large">
                   Next

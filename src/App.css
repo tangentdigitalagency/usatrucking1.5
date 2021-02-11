@@ -13,6 +13,12 @@ a {
 	font-family: "Ubuntu", sans-serif;
 }
 
+.numInput {
+	width: 40%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
 .right-number {
 
 	float: right;
@@ -21,6 +27,16 @@ a {
 	color: #04151f;
 	font-weight: bold;
 
+}
+
+option:hover {
+	background: #cacaca;
+}
+
+.pbar {
+	width: 90%;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .center {

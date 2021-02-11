@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Form,  Button,Input} from "antd";
+import { Form,  Button,Input, Progress} from "antd";
 import CommonComponents from "./CommonComponents"; 
 import {Link,withRouter} from "react-router-dom"; 
 class S7BusinessProfessionAndYears extends Component {
@@ -15,8 +15,10 @@ class S7BusinessProfessionAndYears extends Component {
     console.log("Failed:", errorInfo);
   };
   render() {
-    return (
+    return ( 
       <div className="card shadow-lg" style={{ borderRadius: "25px" }}>
+        <Progress percent={87.5} status="active" showInfo={false} className="pbar"/>
+
         <CommonComponents
           currentStep={this.props.currentStep}
           totalSteps={this.props.totalSteps}

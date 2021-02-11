@@ -6,7 +6,7 @@ import "antd/dist/antd.css";
 import "./App.css";
 import Grid from "@material-ui/core/Grid";
 import Logo from "./Assets/logoq.png";
-import { Button, Typography } from "antd";
+import { Button, Typography, Progress } from "antd";
 import S1FirstAndLastName from "./components/S1FirstAndLastName";      
 import S2EmailAndPhoneNumber from "./components/S2EmailAndPhoneNumber";
 import S3BusinessNameAndWebsite from './components/S3BusinessNameAndWebsite';
@@ -146,7 +146,6 @@ class App extends Component {
         <div className="container">
           <div className="row">
             <div className="col">
-              {/* <StepWizard initialStep={1}> */}
               <Router>
             <Switch>
               <Route exact path="/" >
