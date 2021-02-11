@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Form,  Button,Input} from "antd";
+import { Form,  Button,Input, Progress} from "antd";
 import CommonComponents from "./CommonComponents"; 
 import {Link,withRouter} from "react-router-dom"; 
 import { ArrowLeftOutlined } from '@ant-design/icons';
@@ -15,9 +15,11 @@ class S4AddressAndCity extends Component {
   onFinishFailed = (errorInfo) => {
     console.log("Failed:", errorInfo);
   };
-  render() {
+  render() { 
     return (
       <div className="card shadow-lg" style={{ borderRadius: "25px" }}>
+                <Progress percent={50} status="active" showInfo={false} className="pbar"/>
+
         <CommonComponents
           currentStep={this.props.currentStep}
           totalSteps={this.props.totalSteps}

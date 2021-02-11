@@ -1,10 +1,19 @@
 import React, { Component } from 'react';
-// import { ArrowLeftOutlined } from '@ant-design/icons';
-import { Button } from 'antd';
+import { ArrowLeftOutlined } from '@ant-design/icons';
+import { Button, Progress } from 'antd';
 
 class CommonComponents extends Component {
+
+    
+        // // Update if new step is added / this is for stepper to divide for perc of completion
+        // var current = this.props.currentStep;
+        // var totalStep = 8;
+        // var progress = this.props.currentStep / totalStep * 100; // divides current by total by 100 for %
+
+        // console.log(this.props);
     render() {
-        return (
+
+        return (          
             <div className="flex-row d-inline-flex justify-content-between">
                 {/* <div className="p-2">
                     <Button type="primary" shape="circle" onClick={this.props.previousStep}  >
@@ -12,7 +21,6 @@ class CommonComponents extends Component {
                     </Button>
                 </div> */}
                 <div className="p-2">
-                    <h4>{this.props.currentStep}/{this.props.totalSteps}</h4>
                 </div>
             </div>
         );

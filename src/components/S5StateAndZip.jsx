@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Form, Button, Input,Select } from "antd";
+import { Form, Button, Input,Select, Progress } from "antd";
 import CommonComponents from "./CommonComponents";
 import {Link,withRouter} from "react-router-dom"; 
 import { ArrowLeftOutlined } from '@ant-design/icons';
@@ -17,9 +17,10 @@ class S5StateAndZip extends Component {
   onFinishFailed = (errorInfo) => {
     console.log("Failed:", errorInfo);
   };
-  render() {
+  render() { 
     return (
       <div className="card shadow-lg" style={{ borderRadius: "25px" }}>
+      <Progress percent={62.5} status="active" showInfo={false} className="pbar"/>
         <CommonComponents
           currentStep={this.props.currentStep}
           totalSteps={this.props.totalSteps}

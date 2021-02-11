@@ -1,11 +1,13 @@
 import React, { Component } from "react";
-import { Form, Button, Input } from "antd";
+import { Form, Button, Input, Progress, InputNumber, Select  } from "antd";
 import CommonComponents from "./CommonComponents";
 import Axios from "axios";
 import XMLParser from 'react-xml-parser';
 import ProgressLottie from './ProgressLottie';
 import {Link,withRouter} from "react-router-dom"; 
 import { ArrowLeftOutlined } from '@ant-design/icons';
+const {Option} = Select;
+
 class S8BusinessRevenueAndNoOfEmployees extends Component {
   state = {
     error: '',
@@ -17,7 +19,7 @@ class S8BusinessRevenueAndNoOfEmployees extends Component {
     this.props.setNumberOfEmployees(values.number_of_employees);
     console.log("Success:", values);
     this.setState({
-      loading: true
+      loading: true 
     }, this.PostDataOfBusinessInsurance(this.props.postData));
     this.props.history.push("/step9")
   };
@@ -58,6 +60,8 @@ class S8BusinessRevenueAndNoOfEmployees extends Component {
     const { response, loading } = this.state
     return (
       <div className="card shadow-lg" style={{ borderRadius: "25px" }}>
+       <Progress percent={100} status="active" showInfo={false} className="pbar"/>
+
         <CommonComponents
           currentStep={this.props.currentStep}
           totalSteps={this.props.totalSteps}
@@ -104,10 +108,13 @@ class S8BusinessRevenueAndNoOfEmployees extends Component {
                         }
                       ]}
                     >
-                      <Input
+                      <InputNumber
+                      className="numInput"
                         size="large"
-                        placeholder="Revenue"
-                        type="number"
+                        defaultValue={1000}
+                        formatter={value => `$ ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+                        parser={value => value.replace(/\$\s?|(,*)/g, '')}
+                
                       />
                     </Form.Item>
                     <h5>
@@ -123,31 +130,17 @@ class S8BusinessRevenueAndNoOfEmployees extends Component {
                         }
                       ]}
                     >
-                      <Input
-                        size="large"
-                        placeholder="Number Of Employees"
-                        type="number"
-                      />
+                     <Select size="large" name="number_of_employees" >
+                  <Option disabled selected="" value=""> -- select number of employees -- </Option>
+                  <Option value="10">1-10</Option>
+                  <Option value="20">11-50</Option>
+                  <Option value="50">51-100</Option>
+                  <Option value="75">101-250</Option>
+                  <Option value="100">251-500</Option>
+                  <Option value="200">500+</Option>
+                </Select>
                     </Form.Item>
                     <Form.Item>
-                      <p
-                        className="text-justify"
-                        style={{ color: "#777777", fontSize: "12px" }}
-                      >
-                        By clicking "Get My Quote" I provide my electronic signature
-                        and express written consent to telemarketing calls, text
-                        messages, emails, and postal mail from this Web site our
-                        marketing and re-marketing network, and up to eight insurance
-                        companies or their affiliates or representatives at the phone
-                        number (including wireless number), email address, and postal
-                        address provided by me. I consent to calls and text messages
-                        transmitting insurance quotes, or seeking related additional
-                        information from me, using an Automatic Telephone Dialing
-                        System or prerecorded or artificial voices. I consent that my
-                        signature is not a condition of purchasing any property,
-                        goods, or services and that I may revoke my consent at any
-                        time.
-                      </p>
                     </Form.Item>
                     {/* <Link to="step9"> */}
                     <Form.Item>

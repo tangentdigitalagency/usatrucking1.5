@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Form, Button, Select } from "antd";
+import { Form, Button, Select, Progress } from "antd";
 import CommonComponents from "./CommonComponents";
 import BootstrapSwitchButton from "bootstrap-switch-button-react";
 import {Link,withRouter} from "react-router-dom"; 
@@ -16,10 +16,12 @@ class S6BusinessTypeAndEIN extends Component {
 
   onFinishFailed = (errorInfo) => {
     console.log("Failed:", errorInfo);
-  };
+  }; 
   render() {
     return (
       <div className="card shadow-lg" style={{ borderRadius: "25px" }}>
+        <Progress percent={75} status="active" showInfo={false} className="pbar"/>
+
         <CommonComponents
           currentStep={this.props.currentStep}
           totalSteps={this.props.totalSteps}
