@@ -30,6 +30,7 @@ class App extends Component {
       TYPE: "38",
       Sub_ID: "12",
       Pub_ID: "13",
+      gClid:"",
       TCPA_Consent: "Yes",
       TCPA_Language: "By clicking Get My Quote I provide my electronic signature and express written consent to telemarketing calls, text messages, emails, and postal mail from this Web site, our marketing and re-marketing network, and up to eight insurance companies or their affiliates or representatives at the phone number (including wireless number), email address, and postal address provided by me. I consent to calls and text messages transmitting insurance quotes, or seeking related additional information from me, using an Automatic Telephone Dialing System or prerecorded or artificial voices. I consent that my signature is not a condition of purchasing any property, goods, or services and that I may revoke my consent at any time.",
       trusted_form_cert_id: "",
@@ -157,9 +158,17 @@ class App extends Component {
 
       console.log(document.getElementById('jornaya_lead_id').value)
       console.log(document.getElementsByTagName('script')[0].src)
-      this.setState({ postData: { ...this.state.postData, jornaya_lead_id: document.getElementById('jornaya_lead_id').value, trusted_form_cert_id: document.getElementById('trusted_form_cert_id_0').value } })
+      this.setState({ 
+        postData: 
+          {  
+            ...this.state.postData, 
+            gClid: document.getElementById("gclid_field").value,
+            jornaya_lead_id: document.getElementById('jornaya_lead_id').value, 
+            trusted_form_cert_id: document.getElementById('trusted_form_cert_id_0').value 
+          } 
+      })
       console.log(document.getElementById('trusted_form_cert_id_0'));
-
+      console.log(document.getElementById('gclid_field').value)
       this.setState({
         postData: {
           ...this.state.postData,
