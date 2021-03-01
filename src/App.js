@@ -5,11 +5,14 @@ import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "antd/dist/antd.css";
 import "./App.css";
 import Grid from "@material-ui/core/Grid";
+// @ts-ignore
 import Logo from "./Assets/logoq.png";
+// @ts-ignore
 import { Button, Typography, Progress } from "antd";
 import S1FirstAndLastName from "./components/S1FirstAndLastName";      
 import S2EmailAndPhoneNumber from "./components/S2EmailAndPhoneNumber";
 import S3BusinessNameAndWebsite from './components/S3BusinessNameAndWebsite';
+// @ts-ignore
 import StepWizard from "react-step-wizard";
 import { PhoneOutlined } from "@ant-design/icons"
 import S4AddressAndCity from "./components/S4AddressAndCity";
@@ -24,8 +27,8 @@ class App extends Component {
   state = {
     postData: {
       //extra entries
-      lp_campaign_id:"603456261cc2a",
-      lp_campaign_key:"XvV3P4yGnNRzpwQxFtCM",
+      lp_campaign_id:"5fe10f48a0ba0",
+      lp_campaign_key:"vfB6nWKXFx9L3jPyZc7t",
       Key: "rRkWg9.WrP.Ahm.Ic9hNr9kZruQMcRpNruwIc9tVxVpWrV4MgexMl8QKHpEE",
       TYPE: "38",
       Sub_ID: "12",
@@ -91,6 +94,7 @@ class App extends Component {
 
   callMediaAlpha = () => {
     // console.log("Hey how arew your")
+    // @ts-ignore
     window.MediaAlphaExchange = {
       "data": {
          "zip": "90210"
@@ -100,6 +104,7 @@ class App extends Component {
       "type": "ad_unit",
       "version": 17
    };
+     // @ts-ignore
      window.MediaAlphaExchange__load("target");
    }
   UNSAFE_componentWillUpdate  = () => {
@@ -120,26 +125,19 @@ class App extends Component {
                <header className="navbar navbar-expand flex-column flex-md-row bd-navbar">
           <div className="container">
             <img
-              src={require("./Assets/logoq.png")}
+              // @ts-ignore
+              src={require("./Assets/logo.png")}
               className="m-4"
               width="200px"
               alt=""
             />
             <ul className="nav nav-fill ">
               <li className="nav-item">
-                <Button
-                  type="primary"
-                  size="large"
-                  icon={
-                    <PhoneOutlined
-                      rotate="90"
-                      style={{ verticalAlign: "initial" }}
-                    />
-                  }
-                  href="tel:+18552190784"
-                >
-                  (855) 219-0784
-                </Button>
+              <Button type="primary" size="middle" icon={<PhoneOutlined 
+// @ts-ignore
+              rotate="90" />} href={"tel:+18554344762"} >
+                (855) 434-4762
+              </Button>
               </li>
             </ul>
           </div>
@@ -343,7 +341,7 @@ class App extends Component {
     postData={this.state.postData}
   />   
 </Route>
-<Route path="/step9">  
+<Route path="/thank-you">  
   <S9Final postData2={this.state.postData}/>
  </Route>
   </Switch> 
@@ -371,6 +369,7 @@ class App extends Component {
                 height="auto"
                 object-fit="fit"
                 alt="missing"
+                // @ts-ignore
                 src={require("./Assets/1.png")}
               />
             </Grid>
@@ -380,6 +379,7 @@ class App extends Component {
                 height="auto"
                 object-fit="fit"
                 alt="missing"
+                // @ts-ignore
                 src={require("./Assets/2.png")}
               />
             </Grid>
@@ -389,6 +389,7 @@ class App extends Component {
                 height="auto"
                 object-fit="fit"
                 alt="missing"
+                // @ts-ignore
                 src={require("./Assets/3.png")}
               />
             </Grid>
@@ -397,6 +398,7 @@ class App extends Component {
                 width="80%"
                 height="auto"
                 alt="missing"
+                // @ts-ignore
                 src={require("./Assets/4.png")}
               />
             </Grid>
@@ -406,6 +408,7 @@ class App extends Component {
                 height="auto"
                 object-fit="fit"
                 alt="missing"
+                // @ts-ignore
                 src={require("./Assets/5.png")}
               />
             </Grid>
@@ -419,7 +422,7 @@ class App extends Component {
               <Typography
                 style={{ fontSize: "15px", color: "rgb(166, 166, 166)" }}
               >
-                @ 2020 Quantum Assurance 
+              2021 Quotehound
               </Typography>
             </Grid>
             <Grid item lg={6} xs={false} />
@@ -438,7 +441,8 @@ class App extends Component {
                   }}
                 >
                   <a
-                    href="https://quantumassurance.com/"
+                    href="https://quotehound.com/"
+                    // @ts-ignore
                     style={{ color: "rgb(166,166,166)", fontWeight: "400" }}
                   >
                     Visit Us
@@ -455,7 +459,8 @@ class App extends Component {
                   style={{ fontSize: "15px", color: "rgb(166, 166, 166)" }}
                 >
                   <a
-                    href="https://quantumassurance.com/privacy-policy"
+                    href="https://quotehound.com/privacy-policy"
+                    // @ts-ignore
                     style={{ color: "rgb(166,166,166)", fontWeight: "400" }}
                   >
                     Privacy Policy
@@ -476,7 +481,8 @@ class App extends Component {
                   }}
                 >
                   <a
-                    href="https://quantumassurance.com/terms-conditions"
+                    href="https://quotehound.com/terms-conditions"
+                    // @ts-ignore
                     style={{ color: "rgb(166,166,166)", fontWeight: "400" }}
                   >
                     Terms & Conditions

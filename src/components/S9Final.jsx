@@ -18,13 +18,13 @@ class S9Final extends Component {
 	render() {
 		return (
 			
+			
 			<div className="container pt-0 main-content-container">
-				<h1 className="center"> You Are On Your Way To Saving!</h1>
+				<h1 className="center"> You Are On Your Way To Saving on Your <b>Business</b> Insurance</h1>
 				<br></br>
-				<h3 className="center"> A Quantum Agent will be with you very shortly!</h3>
-                <div id=""> 
-			 <UncontrolledLottie /> 
-				
+                <div id="target"> 
+				<UncontrolledLottie />
+				<p className="center"> An Agent Will Be With You Shortly!</p>
 				</div>
             </div>
 		);
