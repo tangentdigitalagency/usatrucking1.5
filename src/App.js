@@ -70,43 +70,39 @@ class App extends Component {
     },
   };
 
-  // callMediaAlpha = () => {
-  //   var tempArray = {
-  //   email: this.state.email_address,
-  //     phone: this.state.phone_home,
-  //     address: this.state.address,
-  //     zip: this.state.zip_code,
-  //   }
-  //     window.MediaAlphaExchange = {
-  //       "data": {
-  //          "zip": "98052"
-  //       },
-  //       "placement_id": "4yclnD1Pz-JicFFmiW0DhV7a86VXHw",
-  //       "sub_1": "test sub id",
-  //       "type": "ad_unit",
-  //       "version": 17
-  //    };
-  //    window.MediaAlphaExchange__load("target");
-  //    console.log("hello")
-  
-  
-  //   };
-
-  callMediaAlpha = () => {
-    // console.log("Hey how arew your")
-    // @ts-ignore
+  copyValuesToPostData2 = () => {
+    var tempArray = {
+      email: this.state.postData.email_address,
+      phone: this.state.postData.phone_home,
+      address: this.state.postData.address,
+      zip: this.state.postData.zip_code,
+    };
+    this.setState({ postData2: tempArray });
     window.MediaAlphaExchange = {
       "data": {
-         "zip": "90210"
-      },
-      "placement_id": "3lYU7xIApFzLYwijXxsv88dhUoSiaA",
-      "sub_1": "test sub id",
-      "type": "ad_unit",
-      "version": 17
-   };
-     // @ts-ignore
-     window.MediaAlphaExchange__load("target");
-   }
+        "zip": "98052"
+     },
+     "placement_id": "4yclnD1Pz-JicFFmiW0DhV7a86VXHw",
+     "sub_1": "test sub id",
+     "type": "ad_unit",
+     "version": 17
+    };
+    window.MediaAlphaExchange__load("target");
+    return this.state.postData2;
+  };
+  componentDidUpdate = () => {
+    console.log(this.state);
+  };
+
+
+
+
+
+
+
+
+
+
   UNSAFE_componentWillUpdate  = () => {
     console.log(this.state.postData);
   };

@@ -23,8 +23,6 @@ class S9Final extends Component {
 				<h1 className="center"> You Are On Your Way To Saving on Your <b>Business</b> Insurance</h1>
 				<br></br>
                 <div id="target"> 
-				<UncontrolledLottie />
-				<p className="center"> An Agent Will Be With You Shortly!</p>
 				</div>
             </div>
 		);
