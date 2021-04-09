@@ -26,15 +26,13 @@ import LandingPage from './LandingPage';
 class App extends Component {
 	state = {
 		route: '/',
-		routes: ['/step1', '/step2', '/step3', '/step4', '/step5', '/step6', '/step7', '/step8', '/thank-you'],
+		routes: ['/step1', '/step2', '/step3', '/step4', '/step5', '/step6', '/step7', '/step8', '/thank-you-commercial'],
 		postData: {
 			//extra entries
 			lp_campaign_id: '5fe10f48a0ba0',
 			lp_campaign_key: 'vfB6nWKXFx9L3jPyZc7t',
-			Key: 'rRkWg9.WrP.Ahm.Ic9hNr9kZruQMcRpNruwIc9tVxVpWrV4MgexMl8QKHpEE',
-			TYPE: '38',
-			Sub_ID: '12',
-			Pub_ID: '13',
+			lp_s1: '12',
+			lp_s2: '13',
 			gclid: '',
 			TCPA_Consent: 'Yes',
 			TCPA_Language:
@@ -42,8 +40,7 @@ class App extends Component {
 			trusted_form_cert_id: '',
 			jornaya_lead_id: '',
 			// Redirect_URL: "",
-			SRC: 'Internal_Business_Insurance',
-			Landing_Page: 'quantumassurance.com',
+			Landing_Page: 'business.quotehound.com',
 			IP_Address: '',
 			//s1 form fields
 			first_name: '',
@@ -109,11 +106,51 @@ class App extends Component {
 			}
 		});
 	}
-	componentDidUpdate = () => {};
 
-	UNSAFE_componentWillUpdate = () => {
-		console.log(this.state.postData);
+
+	
+
+	componentDidUpdate = () => {
+
 	};
+
+	// componentDidMount = () => {
+	// 	var str = window.location.href;
+	
+	// 		if (str.includes('utm_medium=facebook'))
+	// 			this.setState({
+	// 				postData: {
+	// 					lp_s1: 103,
+	// 					lp_s2: 103
+	
+	// 				}
+	// 			})
+			
+	// 			if(str.includes('utm_medium=bing'))
+	// 				this.setState({
+	// 					postData: {
+	// 						lp_s1: 108,
+	// 						lp_s2: 108
+	// 					}
+	// 				})
+	
+	// 		if  (str.includes('utm_medium=adwords'))
+	// 			this.setState({
+	// 				postData: {
+						
+	// 					lp_s1: 101,
+	// 					lp_s2: 101
+	// 				}
+	// 			})
+	
+	// 		if (str.includes('/'))
+	// 			this.setState({ 
+	// 				postData: {
+	// 					lp_s1: 13,
+	// 					lp_s2: 13
+	// 				}
+	// 			})
+	// 	};
 
 	changeRoute = () => {
 		this.setState({
@@ -170,13 +207,13 @@ class App extends Component {
 										first_name={this.state.postData.first_name}
 										last_name={this.state.postData.last_name}
 										setFirstName={(v) => {
-											console.log(document.getElementById('jornaya_lead_id').value);
+											console.log(document.getElementById('leadid_token').value);
 											console.log(document.getElementsByTagName('script')[0].src);
 											this.setState({
 												postData: {
 													...this.state.postData,
 													gclid: document.getElementById('gclid_field').value,
-													jornaya_lead_id: document.getElementById('jornaya_lead_id').value,
+													jornaya_lead_id: document.getElementById('leadid_token').value,
 													trusted_form_cert_id: document.getElementById('trusted_form_cert_id_0').value,
 												},
 											});
@@ -356,7 +393,7 @@ class App extends Component {
 										postData={this.state.postData}
 									/>
 								</Route>
-								<Route path='/thank-you'>
+								<Route path='/thank-you-commercial'>
 									<S9Final postData2={this.state.postData} />
 								</Route>
 							</Switch>
