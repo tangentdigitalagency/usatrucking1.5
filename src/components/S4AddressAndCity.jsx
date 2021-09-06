@@ -9,7 +9,7 @@ class S4AddressAndCity extends Component {
     this.props.setBusinessAddress(values.address);
     this.props.setBusinessCity(values.city);
     console.log("Success:", values);
-    this.props.history.push("/step5")
+    this.props.history.push("/step6")
   };
 
   onFinishFailed = (errorInfo) => {

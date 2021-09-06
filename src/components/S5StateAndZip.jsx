@@ -11,7 +11,7 @@ class S5StateAndZip extends Component {
     this.props.setBusinessState(values.state);
     this.props.setBusinessZip(values.zip_code);
     console.log("Success:", values);
-    this.props.history.push("/step6")
+    this.props.history.push("/step7")
   };
 
   onFinishFailed = (errorInfo) => {

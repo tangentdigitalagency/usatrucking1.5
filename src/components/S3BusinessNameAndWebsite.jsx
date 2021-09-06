@@ -7,9 +7,8 @@ class S3BusinessNameAndWebsite extends Component {
   onFinish = (values) => {
     // this.props.nextStep();
     this.props.setBusinessName(values.legal_business_name);
-    this.props.setBusinessWebsite(values.business_website);
     console.log("Success:", values);
-    this.props.history.push("/step4")
+    this.props.history.push("/step5")
   };
 
   onFinishFailed = (errorInfo) => {
@@ -47,7 +46,6 @@ class S3BusinessNameAndWebsite extends Component {
               onFinish={this.onFinish}
               initialValues={{
                 legal_business_name: this.props.legal_business_name,
-                business_website: this.props.business_website
               }}
               onFinishFailed={this.onFinishFailed}
             >
@@ -70,23 +68,6 @@ class S3BusinessNameAndWebsite extends Component {
                 <Input  
                   size="large"
                   placeholder="Business Name"
-                />
-              </Form.Item>
-              <h5>Website (Optional)
-              </h5>
-              <Form.Item
-                name="business_website"
-                hasFeedback
-                rules={[ 
-                  {
-                    pattern: /^(https?:\/\/)?(www\.)?([a-zA-Z0-9]+(-?[a-zA-Z0-9])*\.)+[\w]{2,}(\/\S*)?$/i,
-                    message: "Please Enter Valid Website",
-                  }
-                ]}
-              >
-                <Input  
-                  size="large"
-                  placeholder="e.g: www.mywebsite.com"
                 />
               </Form.Item>
               {/* <Link to="/step4"> */}

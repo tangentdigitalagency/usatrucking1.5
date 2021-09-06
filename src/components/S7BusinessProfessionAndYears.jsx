@@ -9,7 +9,7 @@ class S7BusinessProfessionAndYears extends Component {
     this.props.setBusinessProfession(values.business_profession);
     this.props.setyear_business_founded(values.year_business_founded);
     console.log("Success:", values);
-    this.props.history.push("/step8")
+    this.props.history.push("/step9")
   };
 
   onFinishFailed = (errorInfo) => {

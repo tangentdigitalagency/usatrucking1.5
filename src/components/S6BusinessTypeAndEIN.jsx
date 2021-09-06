@@ -9,9 +9,8 @@ class S6BusinessTypeAndEIN extends Component {
   onFinish = (values) => {
     // this.props.nextStep();
     this.props.setBusinessType(values.business_structure);
-    this.props.setEIN(values.ein?"Yes":"No");
     console.log("Success:", values);
-    this.props.history.push("/step7")
+    this.props.history.push("/step8")
   };
 
   onFinishFailed = (errorInfo) => {
@@ -46,7 +45,6 @@ class S6BusinessTypeAndEIN extends Component {
               onFinish={this.onFinish}
               initialValues={{
                 business_structure: this.props.business_structure,
-                last_name: this.props.last_name
               }}
               onFinishFailed={this.onFinishFailed}
             >
@@ -72,22 +70,6 @@ class S6BusinessTypeAndEIN extends Component {
                   <Option name="" value="Trust">Trust</Option>
                   <Option name="" value="Corporation / Other">Corporation/other</Option>
                 </Select>
-              </Form.Item>
-              <h5>
-                Do You Have A EIN? (Federal Tax ID Number)
-              </h5>
-              <Form.Item
-                name="ein"
-                hasFeedback
-              >
-                <BootstrapSwitchButton
-                  checked={this.props.claimedAnything}
-                  onlabel="Yes"
-                  onstyle="ant-btn ant-btn-primary"
-                  offlabel="No"
-                  offstyle="secondary"
-                  style="ant-btn-lg ant-btn-block"
-                />
               </Form.Item>
               {/* <Link to="step7"> */}
               <Form.Item>

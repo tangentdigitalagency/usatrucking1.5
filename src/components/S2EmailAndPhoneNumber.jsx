@@ -11,7 +11,7 @@ class S2EmailAndPhoneNumber extends Component {
 		this.simplePhone(values.phone_home);
 		this.props.setBusinessEmail(values.email_address);
 		console.log('Success:', values);
-		this.props.history.push('/step3');
+		this.props.history.push('/step4');
 		// this.props.nextStep();
 	};
 

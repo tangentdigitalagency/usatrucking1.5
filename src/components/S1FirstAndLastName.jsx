@@ -1,17 +1,18 @@
 import React, { Component } from "react";
-import {Form, Button, Input, Progress} from "antd";
-import CommonComponents from "./CommonComponents"; 
-import {Link} from "react-router-dom"; 
-import {Redirect} from "react-router-dom"; 
-import {withRouter } from "react-router-dom";
+import { Form, Button, Input, Progress } from "antd";
+import CommonComponents from "./CommonComponents";
+import { Link } from "react-router-dom";
+import { Redirect } from "react-router-dom";
+import { withRouter } from "react-router-dom";
+import ArrowLeftOutlined from "@ant-design/icons/lib/icons/ArrowLeftOutlined";
 class S1FirstAndLastName extends Component {
- 
+
   onFinish = (values) => {
     // this.props.nextStep();
     this.props.setFirstName(values.first_name);
     this.props.setLastName(values.last_name);
     console.log("Success:", values);
-    this.props.history.push("/step2")
+    this.props.history.push("/step3")
   };
 
   onFinishFailed = (errorInfo) => {
@@ -23,23 +24,31 @@ class S1FirstAndLastName extends Component {
   //   console.log(`netx page`,this.props)
   // )
   render() {
-   
+
     return (
       <div className="card shadow-lg" style={{ borderRadius: "25px" }}>
-        <Progress percent={12.5} status="active" showInfo={false} className="pbar"/>
+        <Progress percent={12.5} status="active" showInfo={false} className="pbar" />
         <CommonComponents
           currentStep={this.props.currentStep}
           totalSteps={this.props.totalSteps}
           previousStep={this.props.previousStep}
         />
+
+<div className="p-2">
+           <Link to="/step1" >
+                    <Button type="primary" shape="circle"  >
+                        <ArrowLeftOutlined className="anticon" />
+                    </Button>
+                    </Link>
+                </div>
         <div className="d-flex" style={{ minHeight: "60vh" }}>
           <div
             className="card-body d-xl-flex justify-content-center align-items-center"
             align="center"
-            style={{ paddingTop:"0px" }}
+            style={{ paddingTop: "0px" }}
           >
             <Form
-            submit
+              submit
               name="basic"
               className="mywidth"
               onFinish={this.onFinish}
@@ -61,12 +70,12 @@ class S1FirstAndLastName extends Component {
                     message: "Please Enter Your First Name",
                   },
                   {
-                      max:100, message:'Max Length Of First Name Is 100 Characters'
+                    max: 100, message: 'Max Length Of First Name Is 100 Characters'
                   }
                 ]}
               >
-                <Input  
-                  
+                <Input
+
                   size="large"
                   placeholder="First Name"
                 />
@@ -81,34 +90,34 @@ class S1FirstAndLastName extends Component {
                     message: "Please Enter Your Last Name",
                   },
                   {
-                    max:100, message:'Max Length Of Last Name Is 100 Characters'
-                }
+                    max: 100, message: 'Max Length Of Last Name Is 100 Characters'
+                  }
                 ]}
               >
-                <Input 
-                   
+                <Input
+
                   size="large"
                   placeholder="Last Name"
                 />
               </Form.Item>
-            
+
               {/* <Link to="/step2">  */}
               <Form.Item>
-        
-               
-                <Button type="primary" htmlType="submit" block size="large" 
-                
+
+
+                <Button type="primary" htmlType="submit" block size="large"
+
                 // onClick= {() => this.props.history.push("/step2")}
-                 
+
                 >
-            
-                
-               Next  
+
+
+                  Next
                 </Button>
-              
-               
+
+
               </Form.Item>
-            {/* </Link> */}
+              {/* </Link> */}
             </Form>
           </div>
         </div>
@@ -117,4 +126,4 @@ class S1FirstAndLastName extends Component {
   }
 }
 
-export default withRouter(S1FirstAndLastName) ;
+export default withRouter(S1FirstAndLastName);

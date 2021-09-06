@@ -19,6 +19,15 @@ a {
 	margin-right: auto;
 }
 
+.ant-form label {
+	font-size: 18px;
+}
+
+.ant-checkbox-inner {
+
+	width: 18px;
+	height: 18px;
+}
 .right-number {
 
 	float: right;
