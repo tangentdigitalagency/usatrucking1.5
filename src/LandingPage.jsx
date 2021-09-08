@@ -1,7 +1,7 @@
 import { Button, Card, Col, Collapse, Layout, Row, Typography } from 'antd';
 import Grid from '@material-ui/core/Grid';
 
-import logo from './Assets/logo.png';
+import logo from './Assets/logoq.png';
 import SA from './Assets/sa.png';
 import CNA from './Assets/cna.png';
 import LM from './Assets/lm.png';
@@ -49,9 +49,9 @@ function LandingPage(props) {
 									<div className='block-left-hero'>
 										<Row>
 											<Col xs={{ span: 24 }} lg={{ span: 12 }}>
-												<h1 className='hero_heading'>Better Coverage with Quotehound. Get a free Commercial Insurance Quote</h1>
+												<h1 className='hero_heading'>Better Coverage with Quantum Assurance. Get a free Commercial Insurance Quote</h1>
 												<p className='text-white para-white'>
-													A business owners policy includes protection for all major property and liability risk in one package. Offers protection to business owners against property damage, peril, business interruption, and liability. Get a free quote with Quotehound today
+													A business owners policy includes protection for all major property and liability risk in one package. Offers protection to business owners against property damage, peril, business interruption, and liability. Get a free quote with Quantum Assurance today
 													and see if your business qualifies for Business Owners Policy.{' '}
 												</p>
 												<Button
@@ -115,14 +115,14 @@ function LandingPage(props) {
 						<Row>
 							<Col xs={{ span: 24 }} lg={{ span: 12 }}>
 								<p>
-									A business owners policy includes protection for all major property and liability risk in one package. Offers protection to business owners against property damage, peril, business interruption, and liability. Get a free quote with Quotehound Assurance today and see
+									A business owners policy includes protection for all major property and liability risk in one package. Offers protection to business owners against property damage, peril, business interruption, and liability. Get a free quote with Quantum Assurance  today and see
 									if your business qualifies for Business Owners Policy.{' '}
 								</p>
 								<p>
 									These policies are better suited for smaller businesses as they have more personal financial exposure in the event of a loss. As a business owner, you must ensure that all aspects of your business are covered. From property damage to legal liabilities to
 									employee-related risk.
 								</p>
-								<p>At Quotehound, we offer the best coverage available for your business. Get your free quote today and check out what would be the best fit for your business.</p>
+								<p>At Quantum Assurance, we offer the best coverage available for your business. Get your free quote today and check out what would be the best fit for your business.</p>
 								<Button
 													onClick={() => {
 														props.changeRoute();
@@ -190,7 +190,7 @@ function LandingPage(props) {
 										<h1>Why Us?</h1>
 										<p>
 											Receiving a quote from an agent, company, or website can feel like a long process. But don’t let that push you into settling for the first quote you receive. Instead, you’re likely to find a much better deal if you’re willing to shop around. This is where
-											Quotehound comes in.
+											Quantum Assurance comes in.
 										</p>
 										<Row className='mt-1 '>
 											<Col span={24}>
@@ -243,7 +243,7 @@ function LandingPage(props) {
 								<h1>What you need to know when choosing an insurer</h1>
 								<p>Nobody enjoys dealing with things they don’t understand—especially when they have to pay for it</p>
 								<p>For example, can you imagine putting yourself into debt just for the privilege of learning a bunch of facts and figures that you’ll probably never use again?</p>
-								<p>Thankfully, Quotehound has you covered when it comes to understanding car insurance.</p>
+								<p>Thankfully, Quantum Assurance has you covered when it comes to understanding car insurance.</p>
 								<Row className='mt-1 '>
 									<Col span={24}>
 									<Button
@@ -308,7 +308,7 @@ function LandingPage(props) {
 										<div className='container text-left'>
 											<p>
 												Receiving a quote from an agent, company, or website can feel like a long process. But don’t let that push you into settling for the first quote you receive. Instead, you’re likely to find a much better deal if you’re willing to shop around. Here’s the
-												great news: Quotehound can help you save time and effort in two ways when it comes to comparing car-insurance companies and quotes.
+												great news: Quantum Assurance can help you save time and effort in two ways when it comes to comparing car-insurance companies and quotes.
 											</p>
 											<br />
 											<p>First, offers a quick and simple way to review and compare auto-insurance d</p>
@@ -357,7 +357,7 @@ function LandingPage(props) {
 								<img src={quote} alt='quote' width='21' className='quote' />
 								<p className='quote-text-v1'>
 									<em className='font-italic italic-text-4'>
-									“I have never had such a great experience getting insurance quotes than I had using Quotehound.  Their form is super quick and simple.  As soon as I hit submit, they matched me with a great insurance agent named Sandy.  I had all the information and quotes I had to make the decision to switch my insurance.  Thank you Quotehound for the great connection!" <br/>
+									“I have never had such a great experience getting insurance quotes than I had using Quantum Assurance.  Their form is super quick and simple.  As soon as I hit submit, they matched me with a great insurance agent named Sandy.  I had all the information and quotes I had to make the decision to switch my insurance.  Thank you Quantum Assurance for the great connection!" <br/>
 									</em>
 								</p>
 								
@@ -434,10 +434,10 @@ function LandingPage(props) {
 				<Footer className='footer'>
 					<div className='footer-container'>
 						<div className='footer-top-wrap-2'>
-							<h1 className='heading-16'>Quotehound</h1>
+							<h1 className='heading-16'>Quantum Assurance</h1>
 						</div>
 						<div className='div-block-58'>
-						<h3 className="h3">powered by Quotehound Inc 2021  </h3>
+						<h3 className="h3">powered by Quantum Assurance Inc 2021  </h3>
 
 						
 						<Grid container xs={12} align='center' style={{ justifyContent: 'center' }}>
@@ -452,7 +452,7 @@ function LandingPage(props) {
 										fontWeight: 600,
 									}}>
 									<a
-										href='https://quotehound.com/'
+										href='https://quantumassurance.com/'
 										// @ts-ignore
 										style={{ color: 'rgb(166,166,166)', fontWeight: '400' }}>
 										Visit Us
@@ -462,7 +462,7 @@ function LandingPage(props) {
 							<Grid item lg={4} xs={12} style={{ alignSelf: 'center', marginTop: '1rem' }}>
 								<Typography style={{ fontSize: '15px', color: 'rgb(166, 166, 166)' }}>
 									<a
-										href='https://quotehound.com/privacy-policy'
+										href='https://quantumassurance.com/privacy-policy'
 										// @ts-ignore
 										style={{ color: 'rgb(166,166,166)', fontWeight: '400' }}>
 										Privacy Policy
@@ -477,7 +477,7 @@ function LandingPage(props) {
 										fontWeight: 600,
 									}}>
 									<a
-										href='https://quotehound.com/terms-conditions'
+										href='https://quantumassurance.com/terms-conditions'
 										// @ts-ignore
 										style={{ color: 'rgb(166,166,166)', fontWeight: '400' }}>
 										Terms & Conditions
