@@ -11,7 +11,7 @@ class S5StateAndZip extends Component {
     this.props.setBusinessState(values.state);
     this.props.setBusinessZip(values.zip_code);
     console.log("Success:", values);
-    this.props.history.push("/step7")
+    this.props.history.push("/step8")
   };
 
   onFinishFailed = (errorInfo) => {
@@ -20,14 +20,14 @@ class S5StateAndZip extends Component {
   render() { 
     return (
       <div className="card shadow-lg" style={{ borderRadius: "25px" }}>
-      <Progress percent={62.5} status="active" showInfo={false} className="pbar"/>
+      <Progress percent={70} status="active" showInfo={true} className="pbar"/>
         <CommonComponents
           currentStep={this.props.currentStep}
           totalSteps={this.props.totalSteps}
           previousStep={this.props.previousStep}
         />
          <div className="p-2">
-                   <Link to="/step4">
+                   <Link to="/step6">
                     <Button  type="primary" shape="circle"  >
                         <ArrowLeftOutlined className="anticon" />
                     </Button>

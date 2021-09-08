@@ -3,22 +3,24 @@ import { Form,  Button,Input, Progress} from "antd";
 import CommonComponents from "./CommonComponents"; 
 import {Link,withRouter} from "react-router-dom"; 
 import { ArrowLeftOutlined } from '@ant-design/icons';
-class S4AddressAndCity extends Component {
+class S3BusinessNameAndWebsite extends Component {
   onFinish = (values) => {
     // this.props.nextStep();
-    this.props.setBusinessAddress(values.address);
-    this.props.setBusinessCity(values.city);
+    this.props.setBusinessName(values.legal_business_name);
     console.log("Success:", values);
-    this.props.history.push("/step6")
+    this.props.history.push("/step2")
   };
 
   onFinishFailed = (errorInfo) => {
     console.log("Failed:", errorInfo);
   };
-  render() { 
+
+  
+
+  render() {
     return (
       <div className="card shadow-lg" style={{ borderRadius: "25px" }}>
-                <Progress percent={50} status="active" showInfo={false} className="pbar"/>
+                <Progress percent={3} status="active" showInfo={true} className="pbar"/>
 
         <CommonComponents
           currentStep={this.props.currentStep}
@@ -26,8 +28,8 @@ class S4AddressAndCity extends Component {
           previousStep={this.props.previousStep}
         />
          <div className="p-2">
-           <Link to="/step3">
-                    <Button  type="primary" shape="circle"  >
+           <Link to="/" >
+                    <Button type="primary" shape="circle"  >
                         <ArrowLeftOutlined className="anticon" />
                     </Button>
                     </Link>
@@ -43,53 +45,32 @@ class S4AddressAndCity extends Component {
               className="mywidth"
               onFinish={this.onFinish}
               initialValues={{
-                address: this.props.address,
-                city: this.props.city
+                legal_business_name: this.props.legal_business_name,
               }}
               onFinishFailed={this.onFinishFailed}
             >
-              <h3>Where’s your business located?</h3>
+              <h3>What is your business name</h3>
               <br />
-              <h5>Addess</h5>
+              <h5>Legal Business Name</h5>
               <Form.Item
-                name="address"
+                name="legal_business_name"
                 hasFeedback
                 rules={[
                   {
                     required: true,
-                    message: "Please Enter Your Business Address",
+                    message: "Please Enter Your Legal Business Name",
                   },
                   {
-                      max:100, message:'Max Length Of Business Address Is 100 Characters'
+                      max:100, message:'Max Length Of First Name Is 100 Characters'
                   }
                 ]}
               >
                 <Input  
                   size="large"
-                  placeholder="Address"
+                  placeholder="Business Name"
                 />
               </Form.Item>
-              <h5>City
-              </h5>
-              <Form.Item
-                name="city"
-                hasFeedback
-                rules={[
-                  {
-                    required: true,
-                    message: "Please Enter Your Business City Name",
-                  },
-                  {
-                    max:100, message:'Max Length Of City Name Is 100 Characters'
-                }
-                ]}
-              >
-                <Input  
-                  size="large"
-                  placeholder="City"
-                />
-              </Form.Item>
-              {/* <Link to="/step5"> */}
+              {/* <Link to="/step4"> */}
               <Form.Item>
                 <Button type="primary" htmlType="submit" block size="large">
                   Next
@@ -104,4 +85,4 @@ class S4AddressAndCity extends Component {
   }
 }
 
-export default withRouter(S4AddressAndCity);
+export default withRouter(S3BusinessNameAndWebsite);

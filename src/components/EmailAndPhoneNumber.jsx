@@ -1,40 +1,67 @@
 import React, { Component } from 'react';
 import { Form, Input, Button, Progress } from 'antd';
+import Axios from "axios";
+
 import CommonComponents from './CommonComponents';
 import { Link, withRouter } from 'react-router-dom';
 import { ArrowLeftOutlined } from '@ant-design/icons';
 class S2EmailAndPhoneNumber extends Component {
 	formRef = React.createRef();
-	state = {};
+	state = {
+		error: '',
+		loading: false,
+		response: ''
+	  }
 
 	onFinish = (values) => {
-		this.simplePhone(values.phone_home);
+		this.props.setBusinessPhone(values.phone_home);
 		this.props.setBusinessEmail(values.email_address);
 		console.log('Success:', values);
-		this.props.history.push('/step4');
+		this.setState({
+			loading: true 
+		  }, this.PostDataOfBusinessInsurance(this.props.postData));
+		  this.props.history.push("/thank-you-commercial")
 		// this.props.nextStep();
 	};
-
-	onFinishFailed = (errorInfo) => {
-		console.log('Failed:', errorInfo);
-	};
-
-	simplePhone = (value) => {
-		const reg = /^\D?(\d{3})\D?\D?(\d{3})\D?(\d{4})/;
-		value = value.replace(reg, '$1$2$3');
-		if (reg.test(value)) {
-			this.props.setBusinessPhone(value);
-			console.log(value);
-		}
-	};
+	PostDataOfBusinessInsurance = (postData) => {
+		console.log(postData);
+	
+		Axios.post("https://quotehound.leadspediatrack.com/post.do", null, {
+		  params: postData,
+		})
+	
+		.then((res) => {
+		  console.log(res)
+	
+		  console.log("Successfully posted, : ", postData)
+	
+		  if (res.status === 200) {
+			this.setState({
+			  loading: false, 
+			},() =>{
+						
+			});
+		  }
+		})
+	
+		.catch((err) => {
+		  if(err) throw err;
+		});
+	  };
+	
+	
+	  onFinishFailed = (errorInfo) => {
+		console.log("Failed:", errorInfo);
+	  };
 
 	render() {
+
 		return (
 			<div className='card shadow-lg' style={{ borderRadius: '25px' }}>
-				<Progress percent={25} status='active' showInfo={false} className='pbar' />
+				<Progress percent={99} status='active' showInfo={true} className='pbar' />
 				<CommonComponents currentStep={this.props.currentStep} totalSteps={this.props.totalSteps} previousStep={this.props.previousStep} />
 				<div className='p-2'>
-					<Link to='/step1'>
+					<Link to='/step8'>
 						<Button type='primary' shape='circle'>
 							<ArrowLeftOutlined className='anticon' />
 						</Button>

@@ -10,7 +10,7 @@ class S6BusinessTypeAndEIN extends Component {
     // this.props.nextStep();
     this.props.setBusinessType(values.business_structure);
     console.log("Success:", values);
-    this.props.history.push("/step8")
+    this.props.history.push("/step4")
   };
 
   onFinishFailed = (errorInfo) => {
@@ -19,7 +19,7 @@ class S6BusinessTypeAndEIN extends Component {
   render() {
     return (
       <div className="card shadow-lg" style={{ borderRadius: "25px" }}>
-        <Progress percent={75} status="active" showInfo={false} className="pbar"/>
+        <Progress percent={20} status="active" showInfo={true} className="pbar"/>
 
         <CommonComponents
           currentStep={this.props.currentStep}
@@ -27,7 +27,7 @@ class S6BusinessTypeAndEIN extends Component {
           previousStep={this.props.previousStep}
         />
          <div className="p-2">
-           <Link to="/step5" >
+           <Link to="/step2" >
                     <Button type="primary" shape="circle"  >
                         <ArrowLeftOutlined className="anticon" />
                     </Button>

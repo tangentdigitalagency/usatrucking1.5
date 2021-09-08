@@ -3,10 +3,11 @@ import { Form,  Button,Input, Progress} from "antd";
 import CommonComponents from "./CommonComponents"; 
 import {Link,withRouter} from "react-router-dom"; 
 import { ArrowLeftOutlined } from '@ant-design/icons';
-class S3BusinessNameAndWebsite extends Component {
+class S7BusinessProfessionAndYears extends Component {
   onFinish = (values) => {
     // this.props.nextStep();
-    this.props.setBusinessName(values.legal_business_name);
+    this.props.setBusinessProfession(values.business_profession);
+    this.props.setyear_business_founded(values.year_business_founded);
     console.log("Success:", values);
     this.props.history.push("/step5")
   };
@@ -14,13 +15,10 @@ class S3BusinessNameAndWebsite extends Component {
   onFinishFailed = (errorInfo) => {
     console.log("Failed:", errorInfo);
   };
-
-  
-
   render() {
-    return (
+    return ( 
       <div className="card shadow-lg" style={{ borderRadius: "25px" }}>
-                <Progress percent={37.5} status="active" showInfo={false} className="pbar"/>
+        <Progress percent={40} status="active" showInfo={true} className="pbar"/>
 
         <CommonComponents
           currentStep={this.props.currentStep}
@@ -28,8 +26,8 @@ class S3BusinessNameAndWebsite extends Component {
           previousStep={this.props.previousStep}
         />
          <div className="p-2">
-           <Link to="/step2" >
-                    <Button type="primary" shape="circle"  >
+           <Link to="/step3">
+                    <Button  type="primary" shape="circle"  >
                         <ArrowLeftOutlined className="anticon" />
                     </Button>
                     </Link>
@@ -45,32 +43,56 @@ class S3BusinessNameAndWebsite extends Component {
               className="mywidth"
               onFinish={this.onFinish}
               initialValues={{
-                legal_business_name: this.props.legal_business_name,
+                business_profession: this.props.business_profession,
+                year_business_founded: this.props.year_business_founded
               }}
               onFinishFailed={this.onFinishFailed}
             >
-              <h3>What is your business name</h3>
+              <h3>One more thing...</h3>
               <br />
-              <h5>Legal Business Name</h5>
+              <h5>What Is Your Business Profession?
+</h5>
               <Form.Item
-                name="legal_business_name"
+                name="business_profession"
                 hasFeedback
                 rules={[
                   {
                     required: true,
-                    message: "Please Enter Your Legal Business Name",
+                    message: "Please Enter Your Business Profession",
                   },
                   {
-                      max:100, message:'Max Length Of First Name Is 100 Characters'
+                      max:100, message:'Max Length Of Business Profession Is 100 Characters'
                   }
                 ]}
               >
                 <Input  
                   size="large"
-                  placeholder="Business Name"
+                  placeholder="Business Profession"
                 />
               </Form.Item>
-              {/* <Link to="/step4"> */}
+              <h5>
+              What Year Was Your Business Founded?
+              </h5>
+              <Form.Item
+                name="year_business_founded"
+                hasFeedback
+                rules={[
+                  {
+                    required: true,
+                    message: "Please Enter Year",
+                  },
+                  {
+                    max:4, message:'Max Length Of year Is 4 Characters'
+                }
+                ]}
+              >
+                <Input  
+                  size="large"
+                  placeholder="2019"
+                  type="number"
+                />
+              </Form.Item>
+              {/* <Link to="/step8"> */}
               <Form.Item>
                 <Button type="primary" htmlType="submit" block size="large">
                   Next
@@ -85,4 +107,4 @@ class S3BusinessNameAndWebsite extends Component {
   }
 }
 
-export default withRouter(S3BusinessNameAndWebsite);
+export default withRouter(S7BusinessProfessionAndYears);

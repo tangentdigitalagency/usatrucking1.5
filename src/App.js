@@ -9,18 +9,18 @@ import Grid from '@material-ui/core/Grid';
 import Logo from './Assets/logoq.png';
 // @ts-ignore
 import { Button, Typography, Progress } from 'antd';
-import S1FirstAndLastName from './components/S1FirstAndLastName';
-import S2EmailAndPhoneNumber from './components/S2EmailAndPhoneNumber';
-import S3BusinessNameAndWebsite from './components/S3BusinessNameAndWebsite';
+import S1FirstAndLastName from './components/FirstAndLastName';
+import S2EmailAndPhoneNumber from './components/EmailAndPhoneNumber';
+import S3BusinessNameAndWebsite from './components/BusinessNameAndWebsite';
 // @ts-ignore
 import StepWizard from 'react-step-wizard';
 import { PhoneOutlined } from '@ant-design/icons';
-import S4AddressAndCity from './components/S4AddressAndCity';
-import S5StateAndZip from './components/S5StateAndZip';
-import S6BusinessTypeAndEIN from './components/S6BusinessTypeAndEIN';
-import S7BusinessProfessionAndYears from './components/S7BusinessProfessionAndYears';
-import S8BusinessRevenueAndNoOfEmployees from './components/S8BusinessRevenueAndNoOfEmployees';
-import S9Final from './components/S9Final.jsx';
+import S4AddressAndCity from './components/AddressAndCity';
+import S5StateAndZip from './components/StateAndZip';
+import S6BusinessTypeAndEIN from './components/BusinessTypeAndEIN';
+import S7BusinessProfessionAndYears from './components/BusinessProfessionAndYears';
+import S8BusinessRevenueAndNoOfEmployees from './components/BusinessRevenueAndNoOfEmployees';
+import S9Final from './components/Final.jsx';
 import LandingPage from './LandingPage';
 import CoverageType from './components/CoverageType';
 
@@ -204,7 +204,29 @@ class App extends Component {
 						<div className='col'>
 							<Switch>
 
-									<Route exact path='/step1'>
+							<Route path='/step1'>
+									<S3BusinessNameAndWebsite
+										legal_business_name={this.state.postData.legal_business_name}
+										business_website={this.state.postData.business_website}
+										setBusinessName={(v) => {
+											this.setState({
+												postData: {
+													...this.state.postData,
+													legal_business_name: v,
+												},
+											});
+										}}
+										setBusinessWebsite={(v) => {
+											this.setState({
+												postData: {
+													...this.state.postData,
+													business_website: v,
+												},
+											});
+										}}
+									/>
+								</Route>
+							<Route exact path='/step2'>									
 										<CoverageType 
 											coverage_type={this.state.postData.coverage_type}
 
@@ -219,9 +241,119 @@ class App extends Component {
 												console.log(v)
 											}} />
 									</Route>
-
-
-								<Route exact path='/step2'>
+							<Route path='/step3'>
+								<S6BusinessTypeAndEIN
+										business_structure={this.state.postData.business_structure}
+										ein={this.state.postData.ein}
+										setBusinessType={(v) => {
+											this.setState({
+												postData: {
+													...this.state.postData,
+													business_structure: v,
+												},
+											});
+										}}
+										setEIN={(v) => {
+											this.setState({
+												postData: {
+													...this.state.postData,
+													ein: v,
+												},
+											});
+										}}
+									/>
+								</Route>	
+							<Route path='/step4'>
+									<S7BusinessProfessionAndYears
+										business_profession={this.state.postData.business_profession}
+										year_business_founded={this.state.postData.year_business_founded}
+										setBusinessProfession={(v) => {
+											this.setState({
+												postData: {
+													...this.state.postData,
+													business_profession: v,
+												},
+											});
+										}}
+										setyear_business_founded={(v) => {
+											this.setState({
+												postData: {
+													...this.state.postData,
+													year_business_founded: v,
+												},
+											});
+										}}
+									/>
+								</Route>	
+							<Route path='/step5'>
+									<S8BusinessRevenueAndNoOfEmployees
+										annual_revenue_over_next_12_months={this.state.postData.annual_revenue_over_next_12_months}
+										number_of_employees={this.state.postData.number_of_employees}
+										setRevenue={(v) => {
+											this.setState({
+												postData: {
+													...this.state.postData,
+													annual_revenue_over_next_12_months: v,
+												},
+											});
+										}}
+										setNumberOfEmployees={(v) => {
+											this.setState({
+												postData: {
+													...this.state.postData,
+													number_of_employees: v,
+												},
+											});
+										}}
+									/>
+								</Route>	
+							<Route path='/step6'>
+									<S4AddressAndCity
+										address={this.state.postData.address}
+										city={this.state.postData.city}
+										setBusinessAddress={(v) => {
+											this.setState({
+												postData: {
+													...this.state.postData,
+													address: v,
+												},
+											});
+										}}
+										setBusinessCity={(v) => {
+											this.setState({
+												postData: {
+													...this.state.postData,
+													city: v,
+												},
+											});
+										}}
+									/>
+								</Route>
+							<Route path='/step7'>
+									<S5StateAndZip
+										state={this.state.postData.state}
+										zip_code={this.state.postData.zip_code}
+										setBusinessState={(v) => {
+											this.setState({
+												postData: {
+													...this.state.postData,
+													state: v,
+												},
+											});
+										}}
+										setBusinessZip={(v) => {
+											this.setState({
+												postData: {
+													...this.state.postData,
+													zip_code: v,
+												},
+											});
+										}}
+									/>
+								</Route>
+									
+								
+								<Route exact path='/step8'>
 									<S1FirstAndLastName
 										props={this.props}
 										first_name={this.state.postData.first_name}
@@ -256,11 +388,12 @@ class App extends Component {
 										}}
 									/>
 								</Route>
-
-								<Route path='/step3'>
+								<Route path='/step9'>
 									<S2EmailAndPhoneNumber
 										email_address={this.state.postData.email_address}
 										phone_home={this.state.postData.phone_home}
+										callMediaAlpha={this.callMediaAlpha}
+
 										setBusinessEmail={(v) => {
 											this.setState({
 												postData: {
@@ -277,142 +410,14 @@ class App extends Component {
 												},
 											});
 										}}
-									/>
-								</Route>
-								<Route path='/step4'>
-									<S3BusinessNameAndWebsite
-										legal_business_name={this.state.postData.legal_business_name}
-										business_website={this.state.postData.business_website}
-										setBusinessName={(v) => {
-											this.setState({
-												postData: {
-													...this.state.postData,
-													legal_business_name: v,
-												},
-											});
-										}}
-										setBusinessWebsite={(v) => {
-											this.setState({
-												postData: {
-													...this.state.postData,
-													business_website: v,
-												},
-											});
-										}}
-									/>
-								</Route>
-								<Route path='/step5'>
-									<S4AddressAndCity
-										address={this.state.postData.address}
-										city={this.state.postData.city}
-										setBusinessAddress={(v) => {
-											this.setState({
-												postData: {
-													...this.state.postData,
-													address: v,
-												},
-											});
-										}}
-										setBusinessCity={(v) => {
-											this.setState({
-												postData: {
-													...this.state.postData,
-													city: v,
-												},
-											});
-										}}
-									/>
-								</Route>
-								<Route path='/step6'>
-									<S5StateAndZip
-										state={this.state.postData.state}
-										zip_code={this.state.postData.zip_code}
-										setBusinessState={(v) => {
-											this.setState({
-												postData: {
-													...this.state.postData,
-													state: v,
-												},
-											});
-										}}
-										setBusinessZip={(v) => {
-											this.setState({
-												postData: {
-													...this.state.postData,
-													zip_code: v,
-												},
-											});
-										}}
-									/>
-								</Route>
-								<Route path='/step7'>
-									<S6BusinessTypeAndEIN
-										business_structure={this.state.postData.business_structure}
-										ein={this.state.postData.ein}
-										setBusinessType={(v) => {
-											this.setState({
-												postData: {
-													...this.state.postData,
-													business_structure: v,
-												},
-											});
-										}}
-										setEIN={(v) => {
-											this.setState({
-												postData: {
-													...this.state.postData,
-													ein: v,
-												},
-											});
-										}}
-									/>
-								</Route>
-								<Route path='/step8'>
-									<S7BusinessProfessionAndYears
-										business_profession={this.state.postData.business_profession}
-										year_business_founded={this.state.postData.year_business_founded}
-										setBusinessProfession={(v) => {
-											this.setState({
-												postData: {
-													...this.state.postData,
-													business_profession: v,
-												},
-											});
-										}}
-										setyear_business_founded={(v) => {
-											this.setState({
-												postData: {
-													...this.state.postData,
-													year_business_founded: v,
-												},
-											});
-										}}
-									/>
-								</Route>
-								<Route path='/step9'>
-									<S8BusinessRevenueAndNoOfEmployees
-										annual_revenue_over_next_12_months={this.state.postData.annual_revenue_over_next_12_months}
-										number_of_employees={this.state.postData.number_of_employees}
-										callMediaAlpha={this.callMediaAlpha}
-										setRevenue={(v) => {
-											this.setState({
-												postData: {
-													...this.state.postData,
-													annual_revenue_over_next_12_months: v,
-												},
-											});
-										}}
-										setNumberOfEmployees={(v) => {
-											this.setState({
-												postData: {
-													...this.state.postData,
-													number_of_employees: v,
-												},
-											});
-										}}
 										postData={this.state.postData}
+
 									/>
 								</Route>
+								
+								
+								
+								
 								<Route path='/thank-you-commercial'>
 									<S9Final postData2={this.state.postData} />
 								</Route>

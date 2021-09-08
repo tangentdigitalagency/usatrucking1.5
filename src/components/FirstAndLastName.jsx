@@ -12,7 +12,7 @@ class S1FirstAndLastName extends Component {
     this.props.setFirstName(values.first_name);
     this.props.setLastName(values.last_name);
     console.log("Success:", values);
-    this.props.history.push("/step3")
+    this.props.history.push("/step9")
   };
 
   onFinishFailed = (errorInfo) => {
@@ -27,7 +27,7 @@ class S1FirstAndLastName extends Component {
 
     return (
       <div className="card shadow-lg" style={{ borderRadius: "25px" }}>
-        <Progress percent={12.5} status="active" showInfo={false} className="pbar" />
+        <Progress percent={80} status="active" showInfo={true} className="pbar" />
         <CommonComponents
           currentStep={this.props.currentStep}
           totalSteps={this.props.totalSteps}
@@ -35,7 +35,7 @@ class S1FirstAndLastName extends Component {
         />
 
 <div className="p-2">
-           <Link to="/step1" >
+           <Link to="/step7" >
                     <Button type="primary" shape="circle"  >
                         <ArrowLeftOutlined className="anticon" />
                     </Button>

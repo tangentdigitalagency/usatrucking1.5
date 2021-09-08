@@ -6,12 +6,13 @@ import { Redirect } from "react-router-dom";
 import { withRouter } from "react-router-dom";
 
 import '../App.css';
+import ArrowLeftOutlined from "@ant-design/icons/lib/icons/ArrowLeftOutlined";
 
 class CoverageType extends Component {
 
     onFinish = (values) => {
 
-        this.props.history.push("/step2")
+        this.props.history.push("/step3")
     }
 
     logCover = (values) => {
@@ -48,12 +49,19 @@ class CoverageType extends Component {
 
         return (
             <div className="card shadow-lg" style={{ borderRadius: "25px" }}>
-                <Progress percent={1} status="active" showInfo={false} className="pbar" />
+                <Progress percent={10} status="active" showInfo={true} className="pbar" />
                 <CommonComponents
                     currentStep={this.props.currentStep}
                     totalSteps={this.props.totalSteps}
                     previousStep={this.props.previousStep}
                 />
+                <div className='p-2'>
+					<Link to='/step1'>
+						<Button type='primary' shape='circle'>
+							<ArrowLeftOutlined className='anticon' />
+						</Button>
+					</Link>
+				</div>
 
                 <div className="d-flex" style={{ minHeight: "60vh" }}>
                     <div className="card-body d-xl-flex justify-content-center align-items-center"

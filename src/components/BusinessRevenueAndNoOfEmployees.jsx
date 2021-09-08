@@ -9,58 +9,17 @@ import { ArrowLeftOutlined } from '@ant-design/icons';
 const {Option} = Select;
 
 class S8BusinessRevenueAndNoOfEmployees extends Component {
-  state = {
-    error: '',
-    loading: false,
-    response: ''
-  }
+  
   onFinish = (values) => {
     this.props.setRevenue(values.annual_revenue_over_next_12_months);
     this.props.setNumberOfEmployees(values.number_of_employees);
-    console.log("Success:", values);
-    this.setState({
-      loading: true 
-    }, this.PostDataOfBusinessInsurance(this.props.postData));
-    this.props.history.push("/thank-you-commercial")
+    this.props.history.push("/step6")
   };
-  PostDataOfBusinessInsurance = (postData) => {
-    console.log(postData);
-    Axios.post("https://quotehound.leadspediatrack.com/post.do", null, {
-      params: postData,
-    })
-      .then((res) => {
-        console.log(res)
-        if (res.status === 200) {
-          this.setState({
-            loading: false,
-          },() => {
-            this.props.nextStep();
-
-          this.props.callMediaAlpha();
-        
-          });
-        }
-      })
-      .catch((err) => {
-        if (err) throw err;
-      });
-  };
-
-  onFinishFailed = (errorInfo) => {
-    console.log("Failed:", errorInfo);
-  };
-  componentWillReceiveProps = () => {
-    if (this.state.response !== '') {
-      this.setState({ response: '' })
-    }
-  }
-
 
   render() {
-    const { response, loading } = this.state
     return (
       <div className="card shadow-lg" style={{ borderRadius: "25px" }}>
-       <Progress percent={100} status="active" showInfo={false} className="pbar"/>
+       <Progress percent={50} status="active" showInfo={true} className="pbar"/>
 
         <CommonComponents
           currentStep={this.props.currentStep}
@@ -68,7 +27,7 @@ class S8BusinessRevenueAndNoOfEmployees extends Component {
           previousStep={this.props.previousStep}
         />
          <div className="p-2">
-           <Link to="/step7">
+           <Link to="/step4">
                     <Button  type="primary" shape="circle"  >
                         <ArrowLeftOutlined className="anticon" />
                     </Button>
@@ -80,11 +39,7 @@ class S8BusinessRevenueAndNoOfEmployees extends Component {
             align="center"
             style={{ paddingTop: "0px" }}
           >
-            {loading ?
-              <ProgressLottie /> :
               <React.Fragment>
-                {(response !== "") ? <h5>{response}
-                </h5> :
                   <Form
                     name="basic"
                     className="mywidth"
@@ -95,7 +50,6 @@ class S8BusinessRevenueAndNoOfEmployees extends Component {
                     }}
                     onFinishFailed={this.onFinishFailed}
                   >
-                    <h3>One more thing...</h3>
                     <br />
                     <h5>What Is Your Annual Revenue Over The Next 12 Months</h5>
                     <Form.Item
@@ -150,7 +104,7 @@ class S8BusinessRevenueAndNoOfEmployees extends Component {
                     </Form.Item>
                     {/* </Link> */}
                   </Form>
-                }
+                
               </React.Fragment>
             }
           </div>
