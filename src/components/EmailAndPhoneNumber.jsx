@@ -138,7 +138,7 @@ class S2EmailAndPhoneNumber extends Component {
 							</p>
 							<Form.Item>
 								<Button type='primary' htmlType='submit' block size='large'>
-									Next
+									Get My Free Quote
 								</Button>
 							</Form.Item>
 							{/* </Link> */}
