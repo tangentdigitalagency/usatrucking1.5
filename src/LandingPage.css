@@ -1,5 +1,6 @@
 @import '~antd/dist/antd.css';
 @import "~bootstrap/dist/css/bootstrap.min.css";
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700&display=swap');
 
 .landing-page .ant-layout-header {
     background: #ffffff !important;
@@ -10,8 +11,213 @@
 
 }
 
+.eKGJdd {
+    color: rgb(79, 71, 71);
+    display: block;
+    text-align: center;
+}
+.eKGJdd p {
+    font-size: 25px;
+}
+
+
+input[type='number'] {
+    -moz-appearance:textfield;
+    font-size: 18px;
+}
+
+
+.header {
+    font-size: 38px;
+    text-align: center;
+    color:black;
+text-shadow: 0px 2px rgba(255, 255, 255, 0.5);
+font-weight: bold;
+    max-width: 80%;
+    
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+
+.eKGJdd p {
+    display: inline-block;
+    font-size: 1rem;
+    line-height: 1rem;
+    margin-left: 0.8rem;
+}
+.eKGJdd svg {
+    display: inline-block;
+    margin-bottom: -0.25rem;
+    margin-right: 0.3125rem;
+    max-width: 1em;
+}
+
+.blockPhone {
+    width: 100%;
+    display: block;
+}
+
+.card {
+    margin: 10px;
+    min-height: 350px;
+}
+
+
+.iIpwqV a {
+    color: inherit;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.container3 {
+	background: url('./Assets/bgImg.png');
+	background-size:cover;
+    background-position: center center;
+	background-repeat: no-repeat;
+    min-height: 60vh;	
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    align-items: center;
+    max-width: 100%;
+    padding-top: 10%;
+
+}
+.text {
+    margin: 0 auto;
+    position: relative;
+    max-width: 80%;
+    text-align: center;
+    padding-top: 15px;
+}
+.lPHeading {
+    color: black;
+    font-size: 32px;
+}
+
+.pText {
+    color: black;
+    font-size: 18px;
+}
+
+.inputField {
+background-color: rgba(255, 255, 255, 0.9);
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+    max-width: 80%;
+    border-radius: 10px;
+    box-shadow:  0 2.8px 2.2px rgba(0, 0, 0, 0.034)
+}
+
+.input {
+    display: block;
+    justify-content: center;
+    align-items: center;
+    max-width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 48px;
+    
+}
+
+.inputArea {
+    height: 50px;
+    width: 80%;
+    border-color: #488BFF;
+    border-radius: 5px;
+
+}
+
+.button {
+    height: 60px;
+    background-color: #488BFF;
+    color: white;
+    margin: 10px;
+    border-radius: 5px;
+    width: 80%;
+    font-size: 18px;
+
+
+}
+
+
+
+
+@media screen and (max-width: 645px){
+
+    .lPHeading {
+        font-size: 19px;
+        font-weight: bold;
+        margin-top: 15px;
+    }
+
+    .pText {
+        font-size: 14px;
+    }
+    .container3 {
+        background: url('./Assets/bgImg.png');
+	background-size:cover;
+    background-position: center left;
+	background-repeat: no-repeat;
+    min-height: 80vh;	
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding-top: 25px;
+    
+    }
+
+    .text {
+        padding: 0;
+        margin: 0;
+
+    }
+
+    .header {
+        font-size: 28px;
+        text-align: center;
+        color:rgb(0, 0, 0);
+    text-shadow: 0px 2px rgba(255, 255, 255, 0.5);
+    font-weight: bold;
+        max-width: 80%;
+        
+    }
+
+    .input {
+        width: 100%;
+    }
+
+    
+    .inputField {
+    
+        display:inline-flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: white;
+        max-width: 80%;
+        border-radius: 10px;
+        box-shadow:  0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+        0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+        0 12.5px 10px rgba(0, 0, 0, 0.06),
+        0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+        0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+        0 100px 80px rgba(0, 0, 0, 0.12);
+    }
+    
+}
+
 .logosTop {
-    width: 275px;
+    width: 100%
+    ;
+    display: block;
 
 }
 
@@ -21,10 +227,10 @@
 }
 .landing-page .section-one {
     width: 100%;
-    height: 400px;
+    height: 800px;
     position: relative;
     display: flex;
-    min-height: 80vh;
+    min-height: 60vh;
     margin: auto;
     padding: 75px 5% 0;
     -webkit-box-pack: justify;
@@ -121,7 +327,6 @@
 
 .landing-page .footer {
     min-height: auto;
-    padding: 55px 5%;
     background-color: #6165ff;
 }
 
@@ -156,11 +361,21 @@
 }
 
 .landing-page .div-block-58 {
-    padding-top: 35px;
+
+    padding-top: 10px;
 }
 
 .landing-page .section-two {
-    padding: 25px 5%;
+    margin: 5px;
+}
+
+.landing-page .section-two-imgs {
+    margin: 0 auto;
+}
+
+.logoSize {
+    max-width: 150px;
+    align: center;
 }
 
 .landing-page .section-two-container {
@@ -169,13 +384,39 @@
     margin-left: auto;
 }
 
+.column {
+    text-align: center;
+
+}
+
+
+.logosTop {
+    width: 100%;
+    display: block;
+
+}
+@media (min-width: 576px) {  
+	.logosTop{
+		width: 100%;
+	}
+}
+@media (min-width: 768px) { 
+	.logosTop{
+		width: 100%;
+	}
+ }
+@media (min-width: 992px) { 
+	.logosTop{
+		width: 100%;
+	}
+ }
+
 .landing-page .cl01_title {
     max-width: 500px;
     margin-right: auto;
     margin-left: auto;
     color: #8a94a6;
-    font-size: 14px;
-    line-height: 25px;
+    font-size: 25px;
     font-weight: 700;
     text-align: center;
     letter-spacing: 1px;
@@ -184,11 +425,28 @@
 .landing-page .section-two-img-container {
     margin-left: auto;
     margin-right: auto;
-    width: 60%;
+    width: 100%;
+}
+
+.speak {
+    font-size: 25px;
+}
+
+.gtm-identifier-phone {
+    font-size: 25px;
+}
+
+.ant-card-meta-title {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.ant-card-meta-description {
+    font-size: 18px;
 }
 
 .landing-page .section-two-imgs {
-    padding: 2rem 1rem;
+    padding: 15px;
 }
 
 .landing-page .ml-1 {
@@ -196,7 +454,7 @@
 }
 
 .landing-page .service-main-image.business {
-    background-image: url("./Assets/bImg.jpg");
+    background-image: url("./Assets/bgImg.png");
     background-size: contain;
     border-radius: 15px;
 }
@@ -293,7 +551,7 @@
 }
 
 .landing-page .italic-text-4 {
-    font-family: Ubuntu, Helvetica, sans-serif;
+    font-family: Lato, sans-serif;
     font-size: 16px;
     font-weight: 600;
 }
@@ -306,4 +564,3 @@
     line-height: 2.5715 !important;
     font-size: 1.1rem;
 }
-
