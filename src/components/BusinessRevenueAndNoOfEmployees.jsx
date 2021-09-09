@@ -99,7 +99,7 @@ class S8BusinessRevenueAndNoOfEmployees extends Component {
                     {/* <Link to="step9"> */}
                     <Form.Item>
                       <Button type="primary" htmlType="submit" block size="large">
-                        Get My Quote
+                        Next
                       </Button>
                     </Form.Item>
                     {/* </Link> */}
