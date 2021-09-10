@@ -7,9 +7,8 @@ class S4AddressAndCity extends Component {
   onFinish = (values) => {
     // this.props.nextStep();
     this.props.setBusinessAddress(values.address);
-    this.props.setBusinessCity(values.city);
     console.log("Success:", values);
-    this.props.history.push("/step7")
+    this.props.history.push("/step8")
   };
 
   onFinishFailed = (errorInfo) => {
@@ -26,7 +25,7 @@ class S4AddressAndCity extends Component {
           previousStep={this.props.previousStep}
         />
          <div className="p-2">
-           <Link to="/step5">
+           <Link to="/step6">
                     <Button  type="primary" shape="circle"  >
                         <ArrowLeftOutlined className="anticon" />
                     </Button>
@@ -44,13 +43,12 @@ class S4AddressAndCity extends Component {
               onFinish={this.onFinish}
               initialValues={{
                 address: this.props.address,
-                city: this.props.city
               }}
               onFinishFailed={this.onFinishFailed}
             >
               <h3>Where’s your business located?</h3>
               <br />
-              <h5>Addess</h5>
+              <h5>Input Street Addess</h5>
               <Form.Item
                 name="address"
                 hasFeedback
@@ -69,7 +67,7 @@ class S4AddressAndCity extends Component {
                   placeholder="Address"
                 />
               </Form.Item>
-              <h5>City
+              {/* <h5>City
               </h5>
               <Form.Item
                 name="city"
@@ -88,7 +86,7 @@ class S4AddressAndCity extends Component {
                   size="large"
                   placeholder="City"
                 />
-              </Form.Item>
+              </Form.Item> */}
               {/* <Link to="/step5"> */}
               <Form.Item>
                 <Button type="primary" htmlType="submit" block size="large">

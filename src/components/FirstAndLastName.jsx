@@ -35,7 +35,7 @@ class S1FirstAndLastName extends Component {
         />
 
 <div className="p-2">
-           <Link to="/step7" >
+           <Link to="/step8" >
                     <Button type="primary" shape="circle"  >
                         <ArrowLeftOutlined className="anticon" />
                     </Button>

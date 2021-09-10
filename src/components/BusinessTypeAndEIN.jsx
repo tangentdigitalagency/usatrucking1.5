@@ -8,8 +8,10 @@ const {Option}=Select;
 class S6BusinessTypeAndEIN extends Component {
   onFinish = (values) => {
     // this.props.nextStep();
-    this.props.setBusinessType(values.business_structure);
-    console.log("Success:", values);
+
+    let type = values.target.dataset.value; 
+    this.props.setBusinessType(values.currentTarget.dataset.value);
+    console.log("Success:", type);
     this.props.history.push("/step4")
   };
 
@@ -48,9 +50,7 @@ class S6BusinessTypeAndEIN extends Component {
               }}
               onFinishFailed={this.onFinishFailed}
             >
-              <h3>How’s your business structured?</h3>
-              <br />
-              <h5>Business Type</h5>
+              <h3>Business Type</h3>
               <Form.Item
                 name="business_structure"
                 hasFeedback
@@ -61,22 +61,23 @@ class S6BusinessTypeAndEIN extends Component {
                   }
                 ]}
               >
-                <Select name="business_structure" size="large">
-                  <Option value="">What Is your Business Type?</Option>
-                  <Option name="" value="Individual / Sole Proprietor">Individual / Sole Proprieter</Option>
-                  <Option name="" value="Joint Venture">Joint Venture</Option>
-                  <Option name="" value="LLC">LLC</Option>
-                  <Option name="" value="Partnership">Partnership</Option>
-                  <Option name="" value="Trust">Trust</Option>
-                  <Option name="" value="Corporation / Other">Corporation/other</Option>
-                </Select>
+
+<Button size="large" name="business_structure" className="chooseButton" id="Individual / Sole Proprietor" data-value="Individual / Sole Proprietor" value={"Individual / Sole Proprietor"} onClick={(values) => this.onFinish(values)}>Individual / Sole Proprietor</Button>
+
+<Button size="large" name="business_structure" className="chooseButton" id="Joint Venture" data-value="Joint Venture" value={"Joint Venture"} onClick={(values) => this.onFinish(values)}>Joint Venture</Button>
+
+<Button size="large" name="business_structure" className="chooseButton" id="LLC" data-value="LLC" value={"LLC"} onClick={(values) => this.onFinish(values)}>LLC</Button>
+
+
+<Button size="large" name="business_structure" className="chooseButton" id="Partnership" data-value="Partnership" value={"Partnership"} onClick={(values) => this.onFinish(values)}>Partnership</Button>
+
+<Button size="large" name="business_structure" className="chooseButton" id="Trust" data-value="Trust" value={"Trust"} onClick={(values) => this.onFinish(values)}>Trust</Button>
+
+
+<Button size="large" name="business_structure" className="chooseButton" id="Corporation/other" data-value="Corporation/other" value={"Corporation/other"} onClick={(values) => this.onFinish(values)}>Corporation / other</Button>
               </Form.Item>
               {/* <Link to="step7"> */}
-              <Form.Item>
-                <Button type="primary" htmlType="submit" block size="large">
-                  Next
-                </Button>
-              </Form.Item>
+            
               {/* </Link> */}
             </Form>
           </div>

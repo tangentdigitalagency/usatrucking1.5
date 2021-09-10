@@ -9,9 +9,8 @@ class S5StateAndZip extends Component {
   onFinish = (values) => {
     // this.props.nextStep();
     this.props.setBusinessState(values.state);
-    this.props.setBusinessZip(values.zip_code);
     console.log("Success:", values);
-    this.props.history.push("/step8")
+    this.props.history.push("/step9")
   };
 
   onFinishFailed = (errorInfo) => {
@@ -27,7 +26,7 @@ class S5StateAndZip extends Component {
           previousStep={this.props.previousStep}
         />
          <div className="p-2">
-                   <Link to="/step6">
+                   <Link to="/step8">
                     <Button  type="primary" shape="circle"  >
                         <ArrowLeftOutlined className="anticon" />
                     </Button>
@@ -45,7 +44,6 @@ class S5StateAndZip extends Component {
               onFinish={this.onFinish}
               initialValues={{
                 state: this.props.state,
-                zip_code: this.props.zip_code
               }}
               onFinishFailed={this.onFinishFailed}
             >
@@ -120,7 +118,7 @@ class S5StateAndZip extends Component {
                   <Option value="WY">WY</Option>
                 </Select>
               </Form.Item>
-              <h5>Zip
+              {/* <h5>Zip
               </h5>
               <Form.Item
                 name="zip_code"
@@ -141,7 +139,7 @@ class S5StateAndZip extends Component {
                   placeholder="Zip code"
                   type="number"
                 />
-              </Form.Item>
+              </Form.Item> */}
               {/* <Link to="/step6"> */}
               <Form.Item>
                 <Button type="primary" htmlType="submit" block size="large">

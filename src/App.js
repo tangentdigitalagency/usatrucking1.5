@@ -20,6 +20,7 @@ import S5StateAndZip from './components/StateAndZip';
 import S6BusinessTypeAndEIN from './components/BusinessTypeAndEIN';
 import S7BusinessProfessionAndYears from './components/BusinessProfessionAndYears';
 import S8BusinessRevenueAndNoOfEmployees from './components/BusinessRevenueAndNoOfEmployees';
+import Employees from './components/NumberOfEmployees';
 import S9Final from './components/Final.jsx';
 import LandingPage from './LandingPage';
 import CoverageType from './components/CoverageType';
@@ -30,8 +31,8 @@ class App extends Component {
 		routes: ['/step1', '/step2', '/step3', '/step4', '/step5', '/step6', '/step7', '/step8', '/step9', '/thank-you-commercial'],
 		postData: {
 			//extra entries
-			lp_campaign_id: '5fe10f48a0ba0',
-			lp_campaign_key: 'vfB6nWKXFx9L3jPyZc7t',
+			lp_campaign_id: "603456261cc2a",
+			lp_campaign_key: "XvV3P4yGnNRzpwQxFtCM",
 			lp_s1: '12',
 			lp_s2: '13',
 			gclid: '',
@@ -41,7 +42,7 @@ class App extends Component {
 			trusted_form_cert_id: '',
 			jornaya_lead_id: '',
 			// Redirect_URL: "",
-			Landing_Page: 'business.quotehound.com',
+			Landing_Page: 'businessv1.quantumassurance.com',
 			IP_Address: '',
 			//s1 form fields
 			first_name: '',
@@ -110,7 +111,7 @@ class App extends Component {
 	}
 
 
-	
+
 
 	componentDidUpdate = () => {
 
@@ -118,16 +119,16 @@ class App extends Component {
 
 	// componentDidMount = () => {
 	// 	var str = window.location.href;
-	
+
 	// 		if (str.includes('utm_medium=facebook'))
 	// 			this.setState({
 	// 				postData: {
 	// 					lp_s1: 103,
 	// 					lp_s2: 103
-	
+
 	// 				}
 	// 			})
-			
+
 	// 			if(str.includes('utm_medium=bing'))
 	// 				this.setState({
 	// 					postData: {
@@ -135,16 +136,16 @@ class App extends Component {
 	// 						lp_s2: 108
 	// 					}
 	// 				})
-	
+
 	// 		if  (str.includes('utm_medium=adwords'))
 	// 			this.setState({
 	// 				postData: {
-						
+
 	// 					lp_s1: 101,
 	// 					lp_s2: 101
 	// 				}
 	// 			})
-	
+
 	// 		if (str.includes('/'))
 	// 			this.setState({ 
 	// 				postData: {
@@ -163,7 +164,22 @@ class App extends Component {
 	render() {
 		// console.log(this.props);
 		return this.state.route === '/' && this.state.routes.indexOf(window.location.pathname) === -1 ? (
-			<Route exact path='/' render={(props) => <LandingPage changeRoute={this.changeRoute} {...props} />} />
+			<Route exact path='/' render={(props) => <LandingPage 
+				changeRoute={this.changeRoute} 
+				{...props} 
+				zip_code={this.state.postData.zip_code}
+
+				setBusinessZip={(v) => {
+					this.setState({
+						postData: {
+							...this.state.postData,
+							zip_code: v,
+						},
+					});
+				}}
+
+			/>
+			} />
 		) : (
 			<div
 				className='container-fluid'
@@ -204,7 +220,7 @@ class App extends Component {
 						<div className='col'>
 							<Switch>
 
-							<Route path='/step1'>
+								<Route path='/step1'>
 									<S3BusinessNameAndWebsite
 										legal_business_name={this.state.postData.legal_business_name}
 										business_website={this.state.postData.business_website}
@@ -226,23 +242,23 @@ class App extends Component {
 										}}
 									/>
 								</Route>
-							<Route exact path='/step2'>									
-										<CoverageType 
-											coverage_type={this.state.postData.coverage_type}
+								<Route exact path='/step2'>
+									<CoverageType
+										coverage_type={this.state.postData.coverage_type}
 
-											setCoverageType = {(v) => {
-												this.setState({
-													postData: {
-														...this.state.postData,
-														coverage_type: v,
-													},
-												});
+										setCoverageType={(v) => {
+											this.setState({
+												postData: {
+													...this.state.postData,
+													coverage_type: v,
+												},
+											});
 
-												console.log(v)
-											}} />
-									</Route>
-							<Route path='/step3'>
-								<S6BusinessTypeAndEIN
+											console.log(v)
+										}} />
+								</Route>
+								<Route path='/step3'>
+									<S6BusinessTypeAndEIN
 										business_structure={this.state.postData.business_structure}
 										ein={this.state.postData.ein}
 										setBusinessType={(v) => {
@@ -262,8 +278,8 @@ class App extends Component {
 											});
 										}}
 									/>
-								</Route>	
-							<Route path='/step4'>
+								</Route>
+								<Route path='/step4'>
 									<S7BusinessProfessionAndYears
 										business_profession={this.state.postData.business_profession}
 										year_business_founded={this.state.postData.year_business_founded}
@@ -284,11 +300,10 @@ class App extends Component {
 											});
 										}}
 									/>
-								</Route>	
-							<Route path='/step5'>
+								</Route>
+								<Route path='/step5'>
 									<S8BusinessRevenueAndNoOfEmployees
 										annual_revenue_over_next_12_months={this.state.postData.annual_revenue_over_next_12_months}
-										number_of_employees={this.state.postData.number_of_employees}
 										setRevenue={(v) => {
 											this.setState({
 												postData: {
@@ -297,6 +312,14 @@ class App extends Component {
 												},
 											});
 										}}
+
+									/>
+								</Route>
+
+								<Route path='/step6'>
+									<Employees
+										number_of_employees={this.state.postData.number_of_employees}
+
 										setNumberOfEmployees={(v) => {
 											this.setState({
 												postData: {
@@ -306,8 +329,12 @@ class App extends Component {
 											});
 										}}
 									/>
-								</Route>	
-							<Route path='/step6'>
+
+								</Route>
+
+
+
+								<Route path='/step7'>
 									<S4AddressAndCity
 										address={this.state.postData.address}
 										city={this.state.postData.city}
@@ -319,20 +346,19 @@ class App extends Component {
 												},
 											});
 										}}
-										setBusinessCity={(v) => {
-											this.setState({
-												postData: {
-													...this.state.postData,
-													city: v,
-												},
-											});
-										}}
+										// setBusinessCity={(v) => {
+										// 	this.setState({
+										// 		postData: {
+										// 			...this.state.postData,
+													
+										// 		},
+										// 	});
+										// }}
 									/>
 								</Route>
-							<Route path='/step7'>
+								{/* <Route path='/step8'>
 									<S5StateAndZip
 										state={this.state.postData.state}
-										zip_code={this.state.postData.zip_code}
 										setBusinessState={(v) => {
 											this.setState({
 												postData: {
@@ -341,18 +367,11 @@ class App extends Component {
 												},
 											});
 										}}
-										setBusinessZip={(v) => {
-											this.setState({
-												postData: {
-													...this.state.postData,
-													zip_code: v,
-												},
-											});
-										}}
-									/>
-								</Route>
 									
-								
+									/>
+								</Route> */}
+
+
 								<Route exact path='/step8'>
 									<S1FirstAndLastName
 										props={this.props}
@@ -414,10 +433,10 @@ class App extends Component {
 
 									/>
 								</Route>
-								
-								
-								
-								
+
+
+
+
 								<Route path='/thank-you-commercial'>
 									<S9Final postData2={this.state.postData} />
 								</Route>

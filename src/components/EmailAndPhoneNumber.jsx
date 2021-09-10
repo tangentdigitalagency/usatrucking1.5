@@ -61,7 +61,7 @@ class S2EmailAndPhoneNumber extends Component {
 				<Progress percent={99} status='active' showInfo={true} className='pbar' />
 				<CommonComponents currentStep={this.props.currentStep} totalSteps={this.props.totalSteps} previousStep={this.props.previousStep} />
 				<div className='p-2'>
-					<Link to='/step8'>
+					<Link to='/step9'>
 						<Button type='primary' shape='circle'>
 							<ArrowLeftOutlined className='anticon' />
 						</Button>

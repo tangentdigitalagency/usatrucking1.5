@@ -1,4 +1,4 @@
-import { Button, Card, Col, Collapse, Input, Layout, Row, Typography } from 'antd';
+import { Button, Card, Col, Collapse, Form, Input, Layout, Row, Typography} from 'antd';
 import Grid from '@material-ui/core/Grid';
 
 import logo from './Assets/logoq.png';
@@ -9,16 +9,23 @@ import { ReactComponent as YourSvg } from './Assets/img/svg_2.svg';
 import { ArrowRightOutlined, CheckOutlined, PhoneOutlined, PlusOutlined } from '@ant-design/icons';
 import Meta from 'antd/es/card/Meta';
 import './LandingPage.css';
-import { Link, useHistory } from 'react-router-dom';
-import React from 'react';
+import React, {Component} from 'react';
+import { Content, Footer, Header } from 'antd/lib/layout/layout';
+import CommonComponents from "./components/CommonComponents";
+import {withRouter} from "react-router-dom"; 
 
-function LandingPage(props) {
-	const history = useHistory();
-	const { Header, Footer, Content } = Layout;
-	const { Panel } = Collapse;
-	console.log(props);
-	return (
-		<div className='landing-page'>
+
+class LandingPage extends Component {
+
+	onFinish = (values) => {
+		// this.props.nextStep();
+		this.props.setBusinessZip(values.zip_code);
+		this.props.history.push("/step1")
+	  };
+
+	render(){
+		return(
+			<div className='landing-page'>
 		<Layout>
 			<Header>
 				<Row>
@@ -60,15 +67,40 @@ function LandingPage(props) {
 						</div>
 						<div className="input">
 
-					
-						<Input className="inputArea" autoFocus={true} placeholder="Enter Your Zipcode" required={true} maxLength={5}  type="number"  onKeyPress="if(this.value.length==5) return false;"  />                           
+						<Form
+              name="basic"
+              onFinish={this.onFinish}
+              initialValues={{
+                zip_code: this.props.zip_code,
+              }}
+            >
+
+<Form.Item
+                name="zip_code"
+                hasFeedback
+                rules={[
+                  {
+                    required: true,
+                    message: "Please input a correct Zip Code",
+                  },
+				  {
+                    max: 5, message: 'Max Length Of zip code Is 5 Characters'
+                  },
+                ]}
+              >
+						<Input className="inputArea" autoFocus={true} placeholder="Enter Your Zipcode" required={true} maxLength={5}  type="number" />   
+
+						</Form.Item>                        
 
 
-				<Link to={"/step1"}>
-						<Button  className="button" >
-							Get My Free Quote
-						</Button>
-						</Link>
+	
+						<Form.Item>
+                <Button className="button" type="primary" htmlType="submit" block size="large">
+                  Get my free quote
+                </Button>
+              </Form.Item>
+
+						</Form>
 					
 						</div>
 					</div>
@@ -194,7 +226,10 @@ function LandingPage(props) {
 			</Footer>
 		</Layout>
 	</div>
-	);
+		)
+	}
+
 }
 
-export default LandingPage;
+
+export default withRouter(LandingPage);

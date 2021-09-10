@@ -12,7 +12,6 @@ class S8BusinessRevenueAndNoOfEmployees extends Component {
   
   onFinish = (values) => {
     this.props.setRevenue(values.annual_revenue_over_next_12_months);
-    this.props.setNumberOfEmployees(values.number_of_employees);
     this.props.history.push("/step6")
   };
 
@@ -48,7 +47,6 @@ class S8BusinessRevenueAndNoOfEmployees extends Component {
                       annual_revenue_over_next_12_months: this.props.annual_revenue_over_next_12_months,
                       number_of_employees: this.props.number_of_employees
                     }}
-                    onFinishFailed={this.onFinishFailed}
                   >
                     <br />
                     <h5>What Is Your Annual Revenue Over The Next 12 Months</h5>
@@ -71,7 +69,7 @@ class S8BusinessRevenueAndNoOfEmployees extends Component {
                 
                       />
                     </Form.Item>
-                    <h5>
+                    {/* <h5>
                       Number Of Employees
                     </h5>
                     <Form.Item
@@ -93,7 +91,7 @@ class S8BusinessRevenueAndNoOfEmployees extends Component {
                   <Option value="100">251-500</Option>
                   <Option value="200">500+</Option>
                 </Select>
-                    </Form.Item>
+                    </Form.Item> */}
                     <Form.Item>
                     </Form.Item>
                     {/* <Link to="step9"> */}

@@ -14,6 +14,16 @@ a {
 	font-family: "Montserrat", sans-serif;
 }
 
+.chooseButton {
+	min-height: 75px;
+	min-width: 130px;
+	margin: 25px;
+	background-color: #488BFF;
+	color: white;
+	border-radius: 10px;
+	font-size: 20px;
+}
+
 .numInput {
 	width: 40%;
 	margin-left: auto;
