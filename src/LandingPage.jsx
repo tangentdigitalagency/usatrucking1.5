@@ -55,7 +55,7 @@ class LandingPage extends Component {
 			<Content>
 					<div className="container3 ">
 				
-					<h1 className="header"> You are minutes away from saving on your Business Insurance</h1>
+					<h1 className="header"> Simplified Business Quotes</h1>
 					<div className="inputField">
 						
 					<div className='text'>
