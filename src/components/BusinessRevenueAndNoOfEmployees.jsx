@@ -104,7 +104,7 @@ class S8BusinessRevenueAndNoOfEmployees extends Component {
                   </Form>
                 
               </React.Fragment>
-            }
+            
           </div>
         </div>
       </div>
