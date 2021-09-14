@@ -74,7 +74,7 @@ input::-webkit-inner-spin-button {
 }
 
 .container3 {
-	background: url('./Assets/bgImg.png');
+	background: url('./Assets/truckHeader.jpeg');
 	background-size:cover;
     background-position: center center;
 	background-repeat: no-repeat;
@@ -86,6 +86,7 @@ input::-webkit-inner-spin-button {
     align-items: center;
     max-width: 100%;
     padding-top: 10%;
+    padding-bottom: 10%;
 
 }
 .text {

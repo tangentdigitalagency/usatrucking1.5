@@ -1,7 +1,7 @@
 import { Button, Card, Col, Collapse, Layout, Row, Typography, Form, Input } from 'antd';
 import Grid from '@material-ui/core/Grid';
 
-import logo from './Assets/usmq.png';
+import logo from './Assets/utqLogo.png';
 import aet from './Assets/aet.png';
 import humana from './Assets/humana.png';
 import kra from './Assets/kra.png';

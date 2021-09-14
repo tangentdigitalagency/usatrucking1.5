@@ -6,7 +6,7 @@ import 'antd/dist/antd.css';
 import './App.css';
 import Grid from '@material-ui/core/Grid';
 // @ts-ignore
-import Logo from './Assets/logoq.png';
+import Logo from './Assets/utqLogo.png';
 // @ts-ignore
 import { Button, Typography, Progress } from 'antd';
 import S1FirstAndLastName from './components/FirstAndLastName';
@@ -42,7 +42,7 @@ class App extends Component {
 			trusted_form_cert_id: '',
 			jornaya_lead_id: '',
 			// Redirect_URL: "",
-			Landing_Page: 'businessv1.quantumassurance.com',
+			Landing_Page: 'usatruckingquotes.com',
 			IP_Address: '',
 			//s1 form fields
 			first_name: '',
@@ -192,7 +192,7 @@ class App extends Component {
 					<div className='container'>
 						<img
 							// @ts-ignore
-							src={require('./Assets/logoq.png')}
+							src={require('./Assets/utqLogo.png')}
 							className='m-4'
 							width='200px'
 							alt=''
@@ -504,7 +504,7 @@ class App extends Component {
 					</Grid>
 					<Grid container xs={10} style={{ paddingBottom: '1rem', marginTop: '1rem' }}>
 						<Grid item lg={3} xs={12} style={{ alignSelf: 'flex-end' }}>
-							<Typography style={{ fontSize: '15px', color: 'rgb(166, 166, 166)' }}>2021 Quotehound</Typography>
+							<Typography style={{ fontSize: '15px', color: 'rgb(166, 166, 166)' }}>2021 USA Trucking Quotes</Typography>
 						</Grid>
 						<Grid item lg={6} xs={false} />
 						<Grid container lg={3} xs={12}>

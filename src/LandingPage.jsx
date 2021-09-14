@@ -1,7 +1,7 @@
 import { Button, Card, Col, Collapse, Form, Input, Layout, Row, Typography} from 'antd';
 import Grid from '@material-ui/core/Grid';
 
-import logo from './Assets/logoq.png';
+import logo from './Assets/utqLogo.png';
 
 import best from './Assets/img/best.png';
 import budget from './Assets/img/budget.png';
@@ -178,7 +178,7 @@ class LandingPage extends Component {
 					<Grid container xs={10} style={{ paddingBottom: '1rem', marginTop: '1rem' }}>
 						
 					<Grid item lg={3} xs={12} style={{ alignSelf: 'flex-end' }}>
-						<Typography style={{ fontSize: '15px', color: 'rgb(166, 166, 166)' }}>2021 Quantum Assurance</Typography>
+						<Typography style={{ fontSize: '15px', color: 'rgb(166, 166, 166)' }}>2021 USA Trucking Quotes</Typography>
 					</Grid>
 					<Grid item lg={12} xs={12} />
 					<Grid container lg={12} xs={12}>
@@ -186,7 +186,7 @@ class LandingPage extends Component {
 					<Grid item lg={12} xs={12} style={{ alignSelf: 'left' }}>
 							<Typography style={{ fontSize: '11px', color: 'rgb(166, 166, 166)' }}>
 								<a
-									href='https://www.quantumassurance.com/dont-sell-my-info'
+									href='https://www.quotehound.com/dont-sell-my-info'
 									// @ts-ignore
 									style={{ color: 'rgb(166,166,166)', fontWeight: '400' }}>
 										Do Not Sell
@@ -196,7 +196,7 @@ class LandingPage extends Component {
 						<Grid item lg={12} xs={12} style={{ alignSelf: 'left'}}>
 							<Typography style={{ fontSize: '11px', color: 'rgb(166, 166, 166)' }}>
 								<a
-									href='https://quantumassurance.com/privacy-policy'
+									href='https://quotehound.com/privacy-policy'
 									// @ts-ignore
 									style={{ color: 'rgb(166,166,166)', fontWeight: '400' }}>
 									Privacy Policy
@@ -211,7 +211,7 @@ class LandingPage extends Component {
 									fontWeight: 600,
 								}}>
 								<a
-									href='https://quantumassurance.com/terms-conditions'
+									href='https://quotehound.com/terms-conditions'
 									// @ts-ignore
 									style={{ color: 'rgb(166,166,166)', fontWeight: '400' }}>
 									Terms & Conditions
